@@ -1,9 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cynthia Rico Cook — Senior Software Engineer</title>
+<title>Cynthia Rico Cook | Senior Software Engineer</title>
+
+<!-- Meta tags for link previews -->
+
+<meta name="description" content="Senior Full Stack Software Engineer specializing in high-traffic consumer products and distributed systems. Currently at Alaska Airlines, based in Minneapolis.">
+<meta name="author" content="Cynthia Rico Cook">
+<meta property="og:title" content="Cynthia Rico Cook | Senior Software Engineer">
+<meta property="og:description" content="Senior Full Stack Software Engineer specializing in high-traffic consumer products and distributed systems. Currently at Alaska Airlines, based in Minneapolis.">
+<meta property="og:url" content="https://ricocynthia.github.io">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cynthia Rico Cook | Senior Software Engineer">
+<meta name="twitter:description" content="Senior Full Stack Software Engineer specializing in high-traffic consumer products and distributed systems.">
+
+<!-- Favicon: botanical leaf emoji rendered as SVG -->
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -24,534 +42,555 @@
   --sans: 'Jost', system-ui, sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+- { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--sans);
-  background: var(--parchment);
-  color: var(--ink-light);
-  overflow-x: hidden;
+font-family: var(–sans);
+background: var(–parchment);
+color: var(–ink-light);
+overflow-x: hidden;
 }
 
 /* botanical SVG decorations */
 .leaf-decor {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.12;
+position: absolute;
+pointer-events: none;
+opacity: 0.12;
 }
 
 /* NAV */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 0 max(2rem, 6vw);
-  display: flex; align-items: center; justify-content: space-between;
-  height: 68px;
-  background: rgba(247, 243, 236, 0.93);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--parchment-dark);
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+padding: 0 max(2rem, 6vw);
+display: flex; align-items: center; justify-content: space-between;
+height: 68px;
+background: rgba(247, 243, 236, 0.93);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid var(–parchment-dark);
 }
 .nav-logo {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--ink);
-  text-decoration: none;
+font-family: var(–serif);
+font-size: 1.1rem;
+font-style: italic;
+color: var(–ink);
+text-decoration: none;
 }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
+font-size: 0.75rem;
+font-weight: 500;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(–muted);
+text-decoration: none;
+transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--moss); }
+.nav-links a:hover { color: var(–moss); }
+.nav-links a.active { color: var(–moss); border-bottom: 1.5px solid var(–moss); padding-bottom: 2px; }
 
 /* HERO */
 .hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
+min-height: 100vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
+position: relative;
+overflow: hidden;
 }
 .hero-left {
-  background: var(--moss-pale);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 120px max(3rem, 6vw) 80px;
-  position: relative;
-  overflow: hidden;
+background: var(–moss-pale);
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 120px max(3rem, 6vw) 80px;
+position: relative;
+overflow: hidden;
 }
 .hero-left::before {
-  content: '';
-  position: absolute;
-  bottom: -80px; left: -80px;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(90,122,74,0.15) 0%, transparent 70%);
-  border-radius: 50%;
+content: ‘’;
+position: absolute;
+bottom: -80px; left: -80px;
+width: 400px; height: 400px;
+background: radial-gradient(circle, rgba(90,122,74,0.15) 0%, transparent 70%);
+border-radius: 50%;
 }
 /* Large decorative botanical circle */
 .hero-left::after {
-  content: '❧';
-  position: absolute;
-  top: 60px; right: -20px;
-  font-size: 18rem;
-  color: var(--moss);
-  opacity: 0.06;
-  line-height: 1;
+content: ‘❧’;
+position: absolute;
+top: 60px; right: -20px;
+font-size: 18rem;
+color: var(–moss);
+opacity: 0.06;
+line-height: 1;
 }
 .hero-eyebrow {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--moss);
-  margin-bottom: 1.5rem;
+font-size: 0.7rem;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–moss);
+margin-bottom: 1.5rem;
 }
 .hero-name {
-  font-family: var(--serif);
-  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
+font-family: var(–serif);
+font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+font-weight: 700;
+color: var(–ink);
+line-height: 1.1;
+letter-spacing: -0.02em;
+margin-bottom: 0.5rem;
 }
 .hero-name em {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--moss);
+font-style: italic;
+font-weight: 400;
+color: var(–moss);
 }
 .hero-tagline {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--muted);
-  margin-bottom: 2rem;
-  line-height: 1.6;
+font-family: var(–serif);
+font-style: italic;
+font-size: 1.1rem;
+color: var(–muted);
+margin-bottom: 2rem;
+line-height: 1.6;
 }
 .hero-bio {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: var(--ink-light);
-  max-width: 420px;
-  margin-bottom: 2.5rem;
-  font-weight: 300;
+font-size: 0.95rem;
+line-height: 1.8;
+color: var(–ink-light);
+max-width: 420px;
+margin-bottom: 2.5rem;
+font-weight: 300;
 }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn-primary {
-  background: var(--moss);
-  color: #fff;
-  padding: 0.7rem 1.75rem;
-  border-radius: 2px;
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: background 0.2s;
-  display: inline-block;
+background: var(–moss);
+color: #fff;
+padding: 0.7rem 1.75rem;
+border-radius: 2px;
+text-decoration: none;
+font-size: 0.75rem;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+transition: background 0.2s;
+display: inline-block;
 }
-.btn-primary:hover { background: var(--ink); }
+.btn-primary:hover { background: var(–ink); }
 .btn-secondary {
-  background: transparent;
-  color: var(--ink);
-  padding: 0.7rem 1.75rem;
-  border-radius: 2px;
-  border: 1px solid var(--sage);
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: all 0.2s;
-  display: inline-block;
+background: transparent;
+color: var(–ink);
+padding: 0.7rem 1.75rem;
+border-radius: 2px;
+border: 1px solid var(–sage);
+text-decoration: none;
+font-size: 0.75rem;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+transition: all 0.2s;
+display: inline-block;
 }
-.btn-secondary:hover { border-color: var(--moss); color: var(--moss); }
+.btn-secondary:hover { border-color: var(–moss); color: var(–moss); }
 
 .hero-right {
-  background: var(--parchment);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 120px 3rem 80px;
-  gap: 2rem;
-  position: relative;
+background: var(–parchment);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 120px 3rem 80px;
+gap: 2rem;
+position: relative;
 }
 .hero-right::before {
-  content: '';
-  position: absolute;
-  top: 100px; right: -60px;
-  width: 300px; height: 300px;
-  border: 1px solid var(--moss);
-  border-radius: 50%;
-  opacity: 0.1;
+content: ‘’;
+position: absolute;
+top: 100px; right: -60px;
+width: 300px; height: 300px;
+border: 1px solid var(–moss);
+border-radius: 50%;
+opacity: 0.1;
 }
 .avatar-frame {
-  width: clamp(220px, 22vw, 300px);
-  height: clamp(220px, 22vw, 300px);
-  border-radius: 50%;
-  background: var(--sage-pale);
-  border: 6px solid var(--parchment);
-  outline: 1px solid var(--sage);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-  position: relative;
+width: clamp(220px, 22vw, 300px);
+height: clamp(220px, 22vw, 300px);
+border-radius: 50%;
+background: var(–sage-pale);
+border: 6px solid var(–parchment);
+outline: 1px solid var(–sage);
+display: flex; align-items: center; justify-content: center;
+overflow: hidden;
+position: relative;
 }
 .avatar-placeholder {
-  font-size: 4rem;
-  opacity: 0.3;
-  font-family: var(--serif);
-  color: var(--muted);
+font-size: 4rem;
+opacity: 0.3;
+font-family: var(–serif);
+color: var(–muted);
 }
 .hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--parchment-dark);
-  border: 1px solid var(--parchment-dark);
-  width: 100%;
-  max-width: 340px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(–parchment-dark);
+border: 1px solid var(–parchment-dark);
+width: 100%;
+max-width: 340px;
 }
 .stat {
-  background: var(--parchment);
-  padding: 1rem;
-  text-align: center;
+background: var(–parchment);
+padding: 1rem;
+text-align: center;
 }
 .stat-num {
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--ink);
-  display: block;
+font-family: var(–serif);
+font-size: 1.6rem;
+font-weight: 700;
+color: var(–ink);
+display: block;
 }
 .stat-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 2px;
-  display: block;
+font-size: 0.65rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(–muted);
+margin-top: 2px;
+display: block;
 }
 
 /* SECTION */
 section { padding: 100px max(2rem, 7vw); }
 .section-header { margin-bottom: 3.5rem; }
 .section-kicker {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--moss);
-  display: flex; align-items: center; gap: 1rem;
-  margin-bottom: 0.75rem;
+font-size: 0.7rem;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–moss);
+display: flex; align-items: center; gap: 1rem;
+margin-bottom: 0.75rem;
 }
 .section-kicker::after {
-  content: '';
-  flex: 1;
-  max-width: 60px;
-  height: 1px;
-  background: var(--moss);
-  opacity: 0.4;
+content: ‘’;
+flex: 1;
+max-width: 60px;
+height: 1px;
+background: var(–moss);
+opacity: 0.4;
 }
 .section-title {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-weight: 700;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+font-family: var(–serif);
+font-size: clamp(1.8rem, 3vw, 2.8rem);
+font-weight: 700;
+color: var(–ink);
+letter-spacing: -0.02em;
+line-height: 1.15;
 }
-.section-title em { font-style: italic; color: var(--moss); font-weight: 400; }
+.section-title em { font-style: italic; color: var(–moss); font-weight: 400; }
 
 /* ABOUT */
-#about { background: var(--parchment); }
+#about { background: var(–parchment); }
 .about-layout {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 6rem;
-  align-items: start;
+display: grid;
+grid-template-columns: 1fr 360px;
+gap: 6rem;
+align-items: start;
 }
 .about-body p {
-  font-size: 1rem;
-  line-height: 1.9;
-  font-weight: 300;
-  color: var(--ink-light);
-  margin-bottom: 1.2rem;
+font-size: 1rem;
+line-height: 1.9;
+font-weight: 300;
+color: var(–ink-light);
+margin-bottom: 1.2rem;
 }
-.about-body p strong { font-weight: 500; color: var(--ink); }
+.about-body p strong { font-weight: 500; color: var(–ink); }
 .about-pull {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.3rem;
-  color: var(--moss);
-  line-height: 1.6;
-  border-left: 2px solid var(--moss-pale);
-  padding-left: 1.5rem;
-  margin: 2rem 0;
+font-family: var(–serif);
+font-style: italic;
+font-size: 1.3rem;
+color: var(–moss);
+line-height: 1.6;
+border-left: 2px solid var(–moss-pale);
+padding-left: 1.5rem;
+margin: 2rem 0;
 }
 .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
 .sidebar-block {
-  border: 1px solid var(--parchment-dark);
-  padding: 1.25rem 1.5rem;
-  background: var(--parchment);
-  position: relative;
+border: 1px solid var(–parchment-dark);
+padding: 1.25rem 1.5rem;
+background: var(–parchment);
+position: relative;
 }
 .sidebar-block::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 3px; height: 100%;
-  background: var(--moss-pale);
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+width: 3px; height: 100%;
+background: var(–moss-pale);
 }
 .sidebar-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.75rem;
+font-size: 0.65rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 0.75rem;
 }
 .sidebar-block p, .sidebar-block li {
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--ink-light);
-  font-weight: 300;
+font-size: 0.9rem;
+line-height: 1.65;
+color: var(–ink-light);
+font-weight: 300;
 }
 .sidebar-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
 .sidebar-list li { display: flex; align-items: baseline; gap: 0.5rem; }
 .sidebar-list li::before {
-  content: '—';
-  color: var(--moss);
-  font-size: 0.75rem;
-  flex-shrink: 0;
+content: ‘—’;
+color: var(–moss);
+font-size: 0.75rem;
+flex-shrink: 0;
 }
 .book-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--moss);
-  text-decoration: none;
-  font-weight: 500;
+display: inline-block;
+margin-top: 0.5rem;
+font-size: 0.75rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(–moss);
+text-decoration: none;
+font-weight: 500;
 }
-.book-link:hover { color: var(--ink); }
+.book-link:hover { color: var(–ink); }
 
 /* EXPERIENCE */
-#experience { background: var(--sage-pale); }
+#experience { background: var(–sage-pale); }
 .exp-grid { display: flex; flex-direction: column; gap: 2.5rem; }
 .exp-item {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 3rem;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(90,122,74,0.15);
+display: grid;
+grid-template-columns: 180px 1fr;
+gap: 3rem;
+padding-bottom: 2.5rem;
+border-bottom: 1px solid rgba(90,122,74,0.15);
 }
 .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
 .exp-meta {}
 .exp-date {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  font-weight: 400;
-  margin-bottom: 0.4rem;
+font-size: 0.75rem;
+letter-spacing: 0.08em;
+color: var(–muted);
+font-weight: 400;
+margin-bottom: 0.4rem;
 }
 .exp-co {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--moss);
-  letter-spacing: 0.03em;
+font-size: 0.82rem;
+font-weight: 500;
+color: var(–moss);
+letter-spacing: 0.03em;
 }
 .exp-content {}
 .exp-role {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.75rem;
+font-family: var(–serif);
+font-size: 1.2rem;
+font-weight: 700;
+color: var(–ink);
+margin-bottom: 0.75rem;
 }
 .exp-desc {
-  font-size: 0.92rem;
-  line-height: 1.8;
-  color: var(--ink-light);
-  font-weight: 300;
-  margin-bottom: 1rem;
+font-size: 0.92rem;
+line-height: 1.8;
+color: var(–ink-light);
+font-weight: 300;
+margin-bottom: 1rem;
 }
 .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tag {
-  background: var(--parchment);
-  color: var(--moss);
-  border: 1px solid rgba(90,122,74,0.25);
-  padding: 3px 12px;
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
-  font-weight: 500;
+background: var(–parchment);
+color: var(–moss);
+border: 1px solid rgba(90,122,74,0.25);
+padding: 3px 12px;
+font-size: 0.72rem;
+letter-spacing: 0.05em;
+font-weight: 500;
 }
 
 /* FEATURED WORK */
-#projects { background: var(--ink); position: relative; overflow: hidden; }
+#projects { background: var(–ink); position: relative; overflow: hidden; }
 #projects::before {
-  content: '❧';
-  position: absolute;
-  bottom: -60px; right: -40px;
-  font-size: 30rem;
-  color: rgba(255,255,255,0.02);
-  line-height: 1;
-  pointer-events: none;
+content: ‘❧’;
+position: absolute;
+bottom: -60px; right: -40px;
+font-size: 30rem;
+color: rgba(255,255,255,0.02);
+line-height: 1;
+pointer-events: none;
 }
-#projects .section-kicker { color: var(--sage); }
-#projects .section-kicker::after { background: var(--sage); }
-#projects .section-title { color: var(--parchment); }
+#projects .section-kicker { color: var(–sage); }
+#projects .section-kicker::after { background: var(–sage); }
+#projects .section-title { color: var(–parchment); }
 .works-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
-  margin-top: 3.5rem;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 1px;
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(255,255,255,0.06);
+margin-top: 3.5rem;
 }
 .work-card {
-  background: var(--ink);
-  padding: 2.5rem 2rem;
-  transition: background 0.25s;
-  position: relative;
+background: var(–ink);
+padding: 2.5rem 2rem;
+transition: background 0.25s;
+position: relative;
 }
-.work-card:hover { background: var(--ink-light); }
+.work-card:hover { background: var(–ink-light); }
 .work-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 0; height: 2px;
-  background: var(--moss-light);
-  transition: width 0.3s ease;
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+width: 0; height: 2px;
+background: var(–moss-light);
+transition: width 0.3s ease;
 }
 .work-card:hover::after { width: 100%; }
 .work-icon {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  display: block;
+font-size: 1.5rem;
+margin-bottom: 1.5rem;
+display: block;
 }
 .work-name {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--parchment);
-  margin-bottom: 0.4rem;
+font-family: var(–serif);
+font-size: 1.1rem;
+font-weight: 700;
+color: var(–parchment);
+margin-bottom: 0.4rem;
 }
 .work-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
 .work-tag {
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--sage);
-  border: 1px solid rgba(143,168,130,0.3);
-  padding: 2px 8px;
+font-size: 0.65rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(–sage);
+border: 1px solid rgba(143,168,130,0.3);
+padding: 2px 8px;
 }
 .work-desc {
-  font-size: 0.88rem;
-  line-height: 1.75;
-  color: rgba(237, 231, 219, 0.6);
-  font-weight: 300;
+font-size: 0.88rem;
+line-height: 1.75;
+color: rgba(237, 231, 219, 0.6);
+font-weight: 300;
 }
 
 /* SKILLS */
-#skills { background: var(--parchment-dark); }
+#skills { background: var(–parchment-dark); }
 .skills-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3.5rem;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 1.5rem;
+margin-top: 3.5rem;
 }
 .skill-card {
-  background: var(--parchment);
-  padding: 1.5rem;
-  border-bottom: 2px solid var(--moss-pale);
+background: var(–parchment);
+padding: 1.5rem;
+border-bottom: 2px solid var(–moss-pale);
 }
 .skill-card-title {
-  font-family: var(--serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 1rem;
-  font-style: italic;
+font-family: var(–serif);
+font-size: 0.95rem;
+font-weight: 700;
+color: var(–ink);
+margin-bottom: 1rem;
+font-style: italic;
 }
 .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .pill {
-  background: var(--sage-pale);
-  color: var(--ink-light);
-  padding: 4px 12px;
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  transition: background 0.2s;
+background: var(–sage-pale);
+color: var(–ink-light);
+padding: 4px 12px;
+font-size: 0.78rem;
+font-weight: 400;
+letter-spacing: 0.02em;
+transition: background 0.2s;
 }
-.pill:hover { background: var(--moss-pale); }
+.pill:hover { background: var(–moss-pale); }
 
 /* CONTACT */
 #contact {
-  background: var(--moss);
-  position: relative;
-  overflow: hidden;
-  text-align: center;
+background: var(–moss);
+position: relative;
+overflow: hidden;
+text-align: center;
 }
 #contact::before {
-  content: '✦ ✦ ✦';
-  position: absolute;
-  top: 2rem; left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.6rem;
-  letter-spacing: 0.5em;
-  color: rgba(255,255,255,0.2);
+content: ‘✦ ✦ ✦’;
+position: absolute;
+top: 2rem; left: 50%;
+transform: translateX(-50%);
+font-size: 0.6rem;
+letter-spacing: 0.5em;
+color: rgba(255,255,255,0.2);
 }
 .contact-inner { max-width: 620px; margin: 0 auto; }
 #contact .section-kicker { color: rgba(255,255,255,0.5); justify-content: center; }
 #contact .section-kicker::after { background: rgba(255,255,255,0.3); }
 #contact .section-title { color: #fff; margin-bottom: 1.25rem; }
+#contact .section-title em { color: rgba(255,255,255,0.75); }
 .contact-sub {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.7);
-  font-weight: 300;
-  margin-bottom: 2.5rem;
+font-size: 1rem;
+line-height: 1.8;
+color: rgba(255,255,255,0.7);
+font-weight: 300;
+margin-bottom: 2.5rem;
 }
 .contact-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
 .cbtn {
-  padding: 0.75rem 2rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s;
-  display: inline-block;
+padding: 0.75rem 2rem;
+font-size: 0.75rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+font-weight: 500;
+text-decoration: none;
+transition: all 0.2s;
+display: inline-block;
 }
-.cbtn-light { background: #fff; color: var(--moss); }
-.cbtn-light:hover { background: var(--parchment); }
+.cbtn-light { background: #fff; color: var(–moss); }
+.cbtn-light:hover { background: var(–parchment); }
 .cbtn-outline { border: 1px solid rgba(255,255,255,0.4); color: #fff; }
 .cbtn-outline:hover { background: rgba(255,255,255,0.1); }
 
 /* FOOTER */
 footer {
-  background: var(--ink);
-  color: rgba(255,255,255,0.3);
-  padding: 1.75rem max(2rem, 7vw);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+background: var(–ink);
+color: rgba(255,255,255,0.5);
+padding: 1.75rem max(2rem, 7vw);
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 0.75rem;
+letter-spacing: 0.05em;
+}
+
+/* HAMBURGER */
+.nav-toggle {
+display: none;
+flex-direction: column;
+gap: 5px;
+cursor: pointer;
+padding: 4px;
+background: none;
+border: none;
+}
+.nav-toggle span {
+display: block;
+width: 22px;
+height: 2px;
+background: var(–ink);
+border-radius: 2px;
+transition: all 0.3s;
 }
 
 /* ANIMATIONS */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
 }
 .fade { opacity: 0; animation: fadeUp 0.8s ease forwards; }
 .d1 { animation-delay: 0.1s; }
@@ -562,19 +601,40 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .hero-left { min-height: 100vh; }
-  .about-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-  nav .nav-links { gap: 1.25rem; }
+.hero { grid-template-columns: 1fr; }
+.hero-right { display: none; }
+.hero-left { min-height: 100vh; }
+.about-layout { grid-template-columns: 1fr; gap: 3rem; }
+.exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+.nav-toggle { display: flex; }
+.nav-links {
+display: none;
+flex-direction: column;
+gap: 0;
+position: absolute;
+top: 68px; left: 0; right: 0;
+background: rgba(247, 243, 236, 0.98);
+border-bottom: 1px solid var(–parchment-dark);
+padding: 1rem 0;
+}
+.nav-links.open { display: flex; }
+.nav-links li { width: 100%; }
+.nav-links a {
+display: block;
+padding: 0.75rem max(2rem, 6vw);
+font-size: 0.8rem;
+}
 }
 </style>
+
 </head>
 <body>
 
 <nav>
   <a class="nav-logo" href="#">Cynthia Rico Cook</a>
+  <button class="nav-toggle" aria-label="Toggle menu" onclick="this.nextElementSibling.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -587,13 +647,14 @@ footer {
 <main>
 
 <!-- HERO -->
+
 <section class="hero" id="home">
   <div class="hero-left">
     <div class="hero-eyebrow fade d1">Senior Software Engineer</div>
     <h1 class="hero-name fade d2">Cynthia<br><em>Rico Cook</em></h1>
-    <p class="hero-tagline fade d3">I build the things travelers depend on.<br>Complex problems, real-world impact.</p>
+    <p class="hero-tagline fade d3">I build the things people use every single day.</p>
     <p class="hero-bio fade d4">
-      I build high-traffic consumer products and distributed systems — currently at Alaska Airlines, where I helped launch a modern check-in platform handling hundreds of thousands of reservations daily. I work across the full stack: React/TypeScript, Node.js, Go, and Kubernetes.
+      I'm a full stack engineer who loves building high-traffic, mission-critical products. At Alaska Airlines, I work on check-in, a system every single guest goes through. That kind of impact motivates me deeply. I take pride in my work and care about shipping things that are truly well-built.
     </p>
     <div class="hero-ctas fade d5">
       <a href="#projects" class="btn-primary">See my work</a>
@@ -607,40 +668,41 @@ footer {
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-num">6+</span>
-        <span class="stat-label">Years</span>
+        <span class="stat-num" style="font-size:1rem;">Full</span>
+        <span class="stat-label">Stack</span>
       </div>
       <div class="stat">
-        <span class="stat-num">80K</span>
-        <span class="stat-label">Daily res.</span>
+        <span class="stat-num" style="font-size:1rem;">Domain</span>
+        <span class="stat-label">Expert</span>
       </div>
       <div class="stat">
-        <span class="stat-num">8+</span>
-        <span class="stat-label">Technologies</span>
+        <span class="stat-num" style="font-size:1rem;">Product</span>
+        <span class="stat-label">Minded</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
+
 <section id="about">
   <div class="about-layout">
     <div class="about-body">
       <div class="section-header">
         <div class="section-kicker">About me</div>
-        <h2 class="section-title">Engineer. Builder.<br><em>Curious person.</em></h2>
+        <h2 class="section-title">Engineer. Builder.<br><em>Always asking why.</em></h2>
       </div>
       <p>
-        I'm a senior full stack software engineer with <strong>6 years of experience</strong> building high-traffic, user-facing systems. What keeps me excited about this work is the product itself — I genuinely love digging into complex business rules, understanding why they exist, and figuring out how to translate them into software that actually works for real people.
+        I'm a senior full stack software engineer who loves building high-traffic, user-facing products. What keeps me excited about this work is the product itself. I genuinely love digging into complex business rules, understanding why they exist, and figuring out how to translate them into software that actually works for real people.
       </p>
       <p>
-        At Alaska Airlines I've gotten deep into the airline industry — working with native Sabre to handle reservations, learning the regulatory requirements airlines have to follow, and building check-in experiences that serve tens of thousands of travelers every day. There's something thrilling about knowing the features I ship are making a real difference in how people travel.
+        At Alaska Airlines I've gotten deep into the airline industry, learning how to book and manage reservations using native Sabre, understanding the regulatory requirements airlines have to follow, and building check-in experiences that serve hundreds of thousands of travelers every day. There's something thrilling about knowing the features I ship are making a real difference in how people travel.
       </p>
       <blockquote class="about-pull">
         "I love learning about all the business rules and solving the complex problems that come with them. It's really fun work."
       </blockquote>
       <p>
-        Before Alaska Airlines, I built full-stack e-commerce products at Four51 (acquired by Sitecore in 2021), where I was hired full-time after an internship. I studied Computer Science at Augsburg University and am based in Minneapolis — working fully remote.
+        Before Alaska Airlines, I built full-stack e-commerce products at Four51 (acquired by Sitecore in 2021), where I was hired full-time after an internship. I studied Computer Science at Augsburg University and am based in Minneapolis, working fully remote.
       </p>
     </div>
     <div class="sidebar">
@@ -660,13 +722,7 @@ footer {
       </div>
       <div class="sidebar-block">
         <div class="sidebar-label">Beyond the keyboard</div>
-        <p>Outside of engineering, I'm a certified Integrative Nutrition Health Coach with a deep love for natural living. I forage for wild plants and mushrooms, grow my own garden, and blend my own herbal and mushroom teas and tinctures. I'm endlessly curious — always learning something new about the natural world. Someday I'd love to turn that passion into a wellness brand, but for now I'm just enjoying the journey.</p>
-      </div>
-      <div class="sidebar-block">
-        <div class="sidebar-label">Certifications</div>
-        <ul class="sidebar-list">
-          <li>Integrative Nutrition Health Coach — Institute for Integrative Nutrition (2023)</li>
-        </ul>
+        <p>Outside of engineering, I'm a certified Integrative Nutrition Health Coach with a deep love for natural living. I forage for wild plants and mushrooms, grow my own garden, and blend my own herbal and mushroom teas and tinctures. I'm endlessly curious, always learning something new about the natural world. Someday I'd love to turn that passion into a wellness brand, but for now I'm just enjoying the journey.</p>
       </div>
       <div class="sidebar-block">
         <div class="sidebar-label">Published work</div>
@@ -678,6 +734,7 @@ footer {
 </section>
 
 <!-- EXPERIENCE -->
+
 <section id="experience">
   <div class="section-header">
     <div class="section-kicker">Experience</div>
@@ -685,69 +742,74 @@ footer {
   </div>
   <div class="exp-grid">
 
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-date">2022 — Present</div>
-        <div class="exp-co">Alaska Airlines</div>
-      </div>
-      <div class="exp-content">
-        <div class="exp-role">Senior Software Engineer</div>
-        <p class="exp-desc">Helped build and launch a modern online check-in platform replacing a legacy system — now handling hundreds of thousands of reservations daily across web and mobile. Through this work I learned the entire airline industry from scratch: Sabre reservations, regulatory requirements, and the complex business rules that govern how people actually travel.</p>
-        <p class="exp-desc" style="margin-top: 0.75rem;">Led or contributed to some of the platform's most complex features: lap infant check-in, unaccompanied minor check-in, group reservations, non-revenue reservations, and technical support for Alaska's acquisition of Hawaiian Airlines — a company-scale initiative that required the check-in platform to work seamlessly for an entirely new set of travelers and reservation types. Improved international check-in success rate by 0.6% through production log analysis and targeted backend fixes.</p>
-        <p class="exp-desc" style="margin-top: 0.75rem;">The go-to engineer for frontend questions across the check-in surface, and a shared domain resource for partner teams like Seats — people come to me when they need to understand how the product works, not just the code. Mentored a 2024 summer intern and helped onboard incoming engineers to the platform.</p>
-        <div class="tags">
-          <span class="tag">React</span><span class="tag">Vue</span><span class="tag">TypeScript</span>
-          <span class="tag">Node.js BFF</span><span class="tag">Go</span><span class="tag">gRPC</span>
-          <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Azure</span>
-          <span class="tag">ArgoCD</span><span class="tag">Sumo Logic</span>
-        </div>
-      </div>
+```
+<div class="exp-item">
+  <div class="exp-meta">
+    <div class="exp-date">2022 — Present</div>
+    <div class="exp-co">Alaska Airlines</div>
+  </div>
+  <div class="exp-content">
+    <div class="exp-role">Senior Software Engineer</div>
+    <p class="exp-desc">Helped build and launch a modern online check-in platform replacing a legacy system, now handling hundreds of thousands of reservations daily across web and mobile. Through this work I learned the entire airline industry from scratch: how to book and manage reservations using native Sabre, the regulatory requirements airlines must follow, and the complex business rules that govern how people actually travel.</p>
+    <p class="exp-desc" style="margin-top: 0.75rem;">Led or contributed to some of the platform's most complex features: lap infant check-in, unaccompanied minor check-in, group reservations, non-revenue reservations, and technical support for Alaska's acquisition of Hawaiian Airlines, a company-scale initiative that required the check-in platform to work seamlessly for an entirely new set of travelers and reservation types. Improved international check-in success rate by 0.6% through production log analysis and targeted backend fixes.</p>
+    <p class="exp-desc" style="margin-top: 0.75rem;">The go-to engineer for frontend questions across the check-in surface. People come to me when they need to understand how the product works, not just the code. Mentored a 2024 summer intern and helped onboard incoming engineers to the platform.</p>
+    <div class="tags">
+      <span class="tag">Vue</span><span class="tag">TypeScript</span><span class="tag">React</span>
+      <span class="tag">Node.js BFF</span><span class="tag">Go</span><span class="tag">gRPC</span>
+      <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Azure</span>
+      <span class="tag">ArgoCD</span><span class="tag">Sumo Logic</span>
     </div>
+  </div>
+</div>
 
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-date">Jan 2020 — 2022</div>
-        <div class="exp-co">Four51 → Sitecore</div>
-      </div>
-      <div class="exp-content">
-        <div class="exp-role">Full Stack Developer <span style="font-size:0.8rem; font-weight:300; color:var(--muted);">(acquired Mar 2021)</span></div>
-        <p class="exp-desc">Built full-stack e-commerce solutions for clients adopting Four51's OrderCloud platform — a B2B commerce API product. Developed backend integrations and frontend components enabling dynamic storefronts, personalization, and transactional workflows. Contributed to architecture decisions and implemented patterns for maintainable, modular applications.</p>
-        <div class="tags">
-          <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
-          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">OrderCloud</span>
-        </div>
-      </div>
+<div class="exp-item">
+  <div class="exp-meta">
+    <div class="exp-date">Jan 2020 — 2022</div>
+    <div class="exp-co">Four51 → Sitecore</div>
+  </div>
+  <div class="exp-content">
+    <div class="exp-role">Full Stack Developer <span style="font-size:0.8rem; font-weight:300; color:var(--muted);">(acquired Mar 2021)</span></div>
+    <p class="exp-desc">Built full-stack e-commerce and internal tooling solutions for Winmark Corporation, whose brands include Play It Again Sports, Once Upon A Child, Plato's Closet, and Music Go Round. Worked across a single shared Angular and C# codebase supporting all four brands, building both public-facing storefronts and internal tools used by store managers to manage online orders.</p>
+    <p class="exp-desc" style="margin-top: 0.75rem;">Contributed to a custom CMS used for job applications, and helped build a reporting tool that let stores pull sales data across any date range. All built on Four51's OrderCloud B2B commerce platform.</p>
+    <div class="tags">
+      <span class="tag">Angular</span><span class="tag">C#</span>
+      <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
+      <span class="tag">Node.js</span><span class="tag">OrderCloud</span>
     </div>
+  </div>
+</div>
 
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-date">Jun — Aug 2019</div>
-        <div class="exp-co">Four51</div>
-      </div>
-      <div class="exp-content">
-        <div class="exp-role">Software Engineering Intern</div>
-        <p class="exp-desc">Interned at Four51 while completing my CS degree at Augsburg — and was hired full-time upon graduation. Got my first real exposure to building e-commerce products on the OrderCloud platform.</p>
-        <div class="tags">
-          <span class="tag">JavaScript</span><span class="tag">OrderCloud</span>
-        </div>
-      </div>
+<div class="exp-item">
+  <div class="exp-meta">
+    <div class="exp-date">Jun — Aug 2019</div>
+    <div class="exp-co">Four51</div>
+  </div>
+  <div class="exp-content">
+    <div class="exp-role">Software Engineering Intern</div>
+    <p class="exp-desc">Interned at Four51 while finishing my CS degree at Augsburg, and was hired full-time upon graduation. Got my first real exposure to building e-commerce products on the OrderCloud platform.</p>
+    <div class="tags">
+      <span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">OrderCloud</span>
     </div>
+  </div>
+</div>
 
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-date">2016 — 2019</div>
-        <div class="exp-co">Augsburg University</div>
-      </div>
-      <div class="exp-content">
-        <div class="exp-role">B.S. in Computer Science</div>
-        <p class="exp-desc">Minneapolis, MN. Graduated December 2019.</p>
-      </div>
-    </div>
+<div class="exp-item">
+  <div class="exp-meta">
+    <div class="exp-date">2016 — 2019</div>
+    <div class="exp-co">Augsburg University</div>
+  </div>
+  <div class="exp-content">
+    <div class="exp-role">B.S. in Computer Science</div>
+    <p class="exp-desc">Minneapolis, MN. Graduated December 2019.</p>
+  </div>
+</div>
+```
 
   </div>
 </section>
 
 <!-- FEATURED WORK -->
+
 <section id="projects">
   <div class="section-header">
     <div class="section-kicker">Featured work</div>
@@ -755,40 +817,43 @@ footer {
   </div>
   <div class="works-grid">
 
-    <div class="work-card">
-      <span class="work-icon">✈️</span>
-      <div class="work-name">Modern Check-In Platform</div>
-      <div class="work-tags">
-        <span class="work-tag">React</span><span class="work-tag">Vue</span>
-        <span class="work-tag">Node.js BFF</span><span class="work-tag">Go</span><span class="work-tag">K8s</span>
-      </div>
-      <p class="work-desc">Alaska Airlines' legacy check-in system needed replacing. I helped build the new platform from scratch — now handling hundreds of thousands of reservations daily. Along the way I led some of the hardest features: lap infants, unaccompanied minors, group reservations, non-revenue travelers, and supporting Alaska's acquisition of Hawaiian Airlines. Each one required deeply understanding the business rules before writing a single line of code.</p>
-    </div>
+```
+<div class="work-card">
+  <span class="work-icon">🤝</span>
+  <div class="work-name">Hawaiian Airlines Acquisition: Search API</div>
+  <div class="work-tags">
+    <span class="work-tag">Vue</span><span class="work-tag">Node.js BFF</span>
+    <span class="work-tag">Go</span><span class="work-tag">Feature Flags</span><span class="work-tag">API Design</span>
+  </div>
+  <p class="work-desc">When Alaska Airlines acquired Hawaiian Airlines, the check-in platform had to handle an entirely new class of reservations. I led the search API work that made this possible. The API needed to detect whether a confirmation code belonged to an HA reservation and redirect those guests to the HA manage site, detect migrated HA reservations (flights departing after the PSS cutoff date) and treat them as Alaska reservations, stay backwards compatible as we added last name as a required search field to support HA's API requirements, and support a new BFF v2 data gatherer for a cleaner UI response. All of it wrapped in feature flags so we could flip the switch the moment the merger was official.</p>
+</div>
 
-    <div class="work-card">
-      <span class="work-icon">🌍</span>
-      <div class="work-name">International Document Verification</div>
-      <div class="work-tags">
-        <span class="work-tag">TypeScript</span><span class="work-tag">Node.js</span>
-        <span class="work-tag">Go</span><span class="work-tag">Jumio</span><span class="work-tag">gRPC</span>
-      </div>
-      <p class="work-desc">International travelers needed a self-service way to verify travel documents. I built and owned the verification microsite end-to-end — integrating with Jumio's identity API, designing backend service contracts, and handling complex edge cases. Result: a fully self-service experience that reduced operational support load.</p>
-    </div>
+<div class="work-card">
+  <span class="work-icon">👥</span>
+  <div class="work-name">Group Reservation Check-In</div>
+  <div class="work-tags">
+    <span class="work-tag">Vue</span><span class="work-tag">TypeScript</span>
+    <span class="work-tag">Node.js BFF</span><span class="work-tag">Go</span>
+  </div>
+  <p class="work-desc">Group reservations (7+ passengers) had no self-service check-in path at all. I led this as my first big feature. The challenge was that groups are too large to check in all at once, so we designed an MVP where guests check in by last name. A traveler enters their confirmation code and departure airport, then provides their last name. If the reservation passes all validations, they're routed to the check-in summary page showing only passengers with that last name. Simple for the guest, complex under the hood — passenger-level authorization, validation logic, and support for both migrated and legacy reservation formats.</p>
+</div>
 
-    <div class="work-card">
-      <span class="work-icon">👥</span>
-      <div class="work-name">Group Reservation Check-In</div>
-      <div class="work-tags">
-        <span class="work-tag">React</span><span class="work-tag">TypeScript</span>
-        <span class="work-tag">Node.js BFF</span><span class="work-tag">Go</span>
-      </div>
-      <p class="work-desc">Group bookings had no self-service check-in path, pushing travelers to call centers and congesting airports. I led and delivered group reservation check-in and enhanced search APIs — implementing passenger-level authorization and supporting both migrated and legacy reservation formats at scale.</p>
-    </div>
+<div class="work-card">
+  <span class="work-icon">🌍</span>
+  <div class="work-name">International Document Verification</div>
+  <div class="work-tags">
+    <span class="work-tag">Vue</span><span class="work-tag">Node.js</span>
+    <span class="work-tag">Go</span><span class="work-tag">Jumio</span><span class="work-tag">gRPC</span>
+  </div>
+  <p class="work-desc">International travelers were having to call in or go to the airport to verify their travel documents. I built and owned the self-service verification microsite end-to-end, integrating with Jumio's identity verification API, designing the backend service contracts, and making sure every edge case was handled gracefully. The result was a fully self-service experience that took real pressure off airport operations.</p>
+</div>
+```
 
   </div>
 </section>
 
 <!-- SKILLS -->
+
 <section id="skills">
   <div class="section-header">
     <div class="section-kicker">Skills</div>
@@ -841,12 +906,13 @@ footer {
 </section>
 
 <!-- CONTACT -->
+
 <section id="contact">
   <div class="contact-inner">
     <div class="section-kicker">Contact</div>
-    <h2 class="section-title">Let's talk.</h2>
+    <h2 class="section-title">Let's <em>talk.</em></h2>
     <p class="contact-sub">
-      I'm open to senior and staff engineering roles — particularly teams building products with complex real-world business rules — where the hard part isn't just the code, it's deeply understanding the domain. I work fully remote — if you're building something interesting, I'd love to hear about it.
+      I'm open to senior and staff engineering roles — particularly teams building products with complex real-world business rules, where the hard part isn't just the code, it's deeply understanding how the business actually works. I work fully remote, so if you're building something interesting, I'd love to hear about it.
     </p>
     <div class="contact-btns">
       <a href="/cdn-cgi/l/email-protection#95e7fcf6faf6ecfbe1fdfcf4a0d5f2f8f4fcf9bbf6faf8" class="cbtn cbtn-light">Email me</a>
@@ -860,4 +926,31 @@ footer {
 
 <footer>
   <span>© 2026 Cynthia Rico Cook</span>
-  <span>Minne
+  <span>Minneapolis, MN</span>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const navMenu = document.querySelector('.nav-links');
+
+// Close menu and highlight active section on link click
+navLinks.forEach(a => {
+  a.addEventListener('click', () => navMenu.classList.remove('open'));
+});
+
+// Highlight active nav on scroll
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
