@@ -5,596 +5,673 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cynthia Rico Cook — Senior Software Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #faf7f2;
-    --warm-white: #fff8f0;
-    --terracotta: #c4613a;
-    --terracotta-light: #e8856a;
-    --terracotta-pale: #f5e2d8;
-    --forest: #2d4a3e;
-    --forest-light: #3d6355;
-    --sand: #e8ddd0;
-    --sand-dark: #c8b8a5;
-    --charcoal: #2a2520;
-    --body-text: #4a4038;
-    --muted: #8a7a6e;
-    --serif: 'Lora', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
-  }
+:root {
+  --parchment: #f7f3ec;
+  --parchment-dark: #ede7db;
+  --ink: #1c2b1e;
+  --ink-light: #3a4f3c;
+  --moss: #5a7a4a;
+  --moss-light: #7a9e68;
+  --moss-pale: #e4edd8;
+  --clay: #b87050;
+  --clay-pale: #f5e8df;
+  --sage: #8fa882;
+  --sage-pale: #edf2e8;
+  --muted: #7a8c72;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Jost', system-ui, sans-serif;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-  html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--parchment);
+  color: var(--ink-light);
+  overflow-x: hidden;
+}
 
-  body {
-    font-family: var(--sans);
-    background: var(--cream);
-    color: var(--body-text);
-    overflow-x: hidden;
-  }
+/* botanical SVG decorations */
+.leaf-decor {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.12;
+}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250, 247, 242, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--sand);
-    padding: 0 max(2rem, 5vw);
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
-  }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    color: var(--charcoal);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--muted);
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--terracotta); }
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 max(2rem, 6vw);
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+  background: rgba(247, 243, 236, 0.93);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--parchment-dark);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--moss); }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    padding: 120px max(2rem, 8vw) 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; top: -10%; right: -5%;
-    width: 55vw; height: 55vw; max-width: 700px; max-height: 700px;
-    background: radial-gradient(circle at center, var(--terracotta-pale) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .hero-text { position: relative; }
-  .hero-eyebrow {
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 1.25rem;
-    display: flex; align-items: center; gap: 0.75rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: inline-block; width: 28px; height: 1.5px;
-    background: var(--terracotta);
-  }
-  h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    font-weight: 600;
-    color: var(--charcoal);
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
-  }
-  h1 em {
-    color: var(--terracotta);
-    font-style: italic;
-  }
-  .hero-bio {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--body-text);
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-  }
-  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--terracotta);
-    color: #fff;
-    padding: 0.75rem 1.75rem;
-    border-radius: 100px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--forest); transform: translateY(-1px); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--charcoal);
-    padding: 0.75rem 1.75rem;
-    border-radius: 100px;
-    border: 1.5px solid var(--sand-dark);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: border-color 0.2s, color 0.2s;
-    display: inline-block;
-  }
-  .btn-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); }
-  .hero-visual {
-    display: flex; justify-content: flex-end; align-items: center;
-    position: relative;
-  }
-  .avatar-wrap {
-    width: clamp(260px, 28vw, 380px);
-    height: clamp(260px, 28vw, 380px);
-    border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
-    background: var(--sand);
-    overflow: hidden;
-    border: 4px solid var(--warm-white);
-    box-shadow: 0 20px 60px rgba(196, 97, 58, 0.15);
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-  }
-  .avatar-placeholder {
-    font-family: var(--serif);
-    font-size: 5rem;
-    color: var(--muted);
-    opacity: 0.4;
-    user-select: none;
-  }
-  .avatar-hint {
-    position: absolute; bottom: -2.5rem; left: 50%; transform: translateX(-50%);
-    font-size: 0.75rem; color: var(--muted); white-space: nowrap;
-    font-style: italic;
-  }
-  .hero-stats {
-    display: flex; gap: 2rem; margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--sand);
-  }
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--charcoal);
-  }
-  .stat-label {
-    font-size: 0.78rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  background: var(--moss-pale);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px max(3rem, 6vw) 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(90,122,74,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+/* Large decorative botanical circle */
+.hero-left::after {
+  content: '❧';
+  position: absolute;
+  top: 60px; right: -20px;
+  font-size: 18rem;
+  color: var(--moss);
+  opacity: 0.06;
+  line-height: 1;
+}
+.hero-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 1.5rem;
+}
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.hero-name em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--moss);
+}
+.hero-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.hero-bio {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--ink-light);
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--moss);
+  color: #fff;
+  padding: 0.7rem 1.75rem;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--ink); }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  padding: 0.7rem 1.75rem;
+  border-radius: 2px;
+  border: 1px solid var(--sage);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-secondary:hover { border-color: var(--moss); color: var(--moss); }
 
-  /* SECTION WRAPPER */
-  section { padding: 100px max(2rem, 8vw); }
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 600;
-    color: var(--charcoal);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
-  }
-  .section-sub {
-    font-size: 1rem;
-    color: var(--muted);
-    max-width: 520px;
-    line-height: 1.7;
-    margin-bottom: 3.5rem;
-  }
+.hero-right {
+  background: var(--parchment);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 3rem 80px;
+  gap: 2rem;
+  position: relative;
+}
+.hero-right::before {
+  content: '';
+  position: absolute;
+  top: 100px; right: -60px;
+  width: 300px; height: 300px;
+  border: 1px solid var(--moss);
+  border-radius: 50%;
+  opacity: 0.1;
+}
+.avatar-frame {
+  width: clamp(220px, 22vw, 300px);
+  height: clamp(220px, 22vw, 300px);
+  border-radius: 50%;
+  background: var(--sage-pale);
+  border: 6px solid var(--parchment);
+  outline: 1px solid var(--sage);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.avatar-placeholder {
+  font-size: 4rem;
+  opacity: 0.3;
+  font-family: var(--serif);
+  color: var(--muted);
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--parchment-dark);
+  border: 1px solid var(--parchment-dark);
+  width: 100%;
+  max-width: 340px;
+}
+.stat {
+  background: var(--parchment);
+  padding: 1rem;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  display: block;
+}
+.stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+  display: block;
+}
 
-  /* ABOUT */
-  #about { background: var(--warm-white); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 5rem;
-    align-items: start;
-  }
-  .about-text p {
-    font-size: 1.05rem;
-    line-height: 1.85;
-    color: var(--body-text);
-    margin-bottom: 1.25rem;
-  }
-  .about-text p strong { color: var(--charcoal); font-weight: 500; }
-  .about-aside { display: flex; flex-direction: column; gap: 2rem; }
-  .aside-card {
-    background: var(--cream);
-    border-radius: 16px;
-    padding: 1.5rem;
-    border: 1px solid var(--sand);
-  }
-  .aside-card-title {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-  .fun-fact { font-size: 1rem; line-height: 1.6; color: var(--body-text); font-style: italic; }
-  .values-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .values-list li {
-    font-size: 0.9rem;
-    color: var(--body-text);
-    display: flex; align-items: center; gap: 0.6rem;
-  }
-  .values-list li::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--terracotta);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
+/* SECTION */
+section { padding: 100px max(2rem, 7vw); }
+.section-header { margin-bottom: 3.5rem; }
+.section-kicker {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.section-kicker::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--moss);
+  opacity: 0.4;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.section-title em { font-style: italic; color: var(--moss); font-weight: 400; }
 
-  /* EXPERIENCE */
-  #experience { background: var(--cream); }
-  .timeline { display: flex; flex-direction: column; gap: 0; }
-  .timeline-item {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 2.5rem;
-    padding-bottom: 3rem;
-    position: relative;
-  }
-  .timeline-item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 200px;
-    top: 28px;
-    bottom: 0;
-    width: 1px;
-    background: var(--sand);
-    transform: translateX(calc(-50% + 1.25rem));
-  }
-  .timeline-date {
-    text-align: right;
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--muted);
-    padding-top: 4px;
-    letter-spacing: 0.02em;
-  }
-  .timeline-dot {
-    width: 10px; height: 10px;
-    background: var(--terracotta);
-    border-radius: 50%;
-    position: absolute;
-    left: 200px;
-    top: 6px;
-    transform: translateX(calc(-50% + 1.25rem - 5px));
-    border: 2px solid var(--cream);
-    box-shadow: 0 0 0 2px var(--terracotta);
-  }
-  .timeline-content {}
-  .timeline-role {
-    font-family: var(--serif);
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--charcoal);
-    margin-bottom: 0.2rem;
-  }
-  .timeline-company {
-    font-size: 0.9rem;
-    color: var(--terracotta);
-    font-weight: 500;
-    margin-bottom: 0.75rem;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .timeline-desc {
-    font-size: 0.95rem;
-    line-height: 1.75;
-    color: var(--body-text);
-    margin-bottom: 1rem;
-  }
-  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .chip {
-    background: var(--terracotta-pale);
-    color: var(--terracotta);
-    padding: 3px 12px;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
+/* ABOUT */
+#about { background: var(--parchment); }
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 6rem;
+  align-items: start;
+}
+.about-body p {
+  font-size: 1rem;
+  line-height: 1.9;
+  font-weight: 300;
+  color: var(--ink-light);
+  margin-bottom: 1.2rem;
+}
+.about-body p strong { font-weight: 500; color: var(--ink); }
+.about-pull {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--moss);
+  line-height: 1.6;
+  border-left: 2px solid var(--moss-pale);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+}
+.sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+.sidebar-block {
+  border: 1px solid var(--parchment-dark);
+  padding: 1.25rem 1.5rem;
+  background: var(--parchment);
+  position: relative;
+}
+.sidebar-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--moss-pale);
+}
+.sidebar-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.sidebar-block p, .sidebar-block li {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--ink-light);
+  font-weight: 300;
+}
+.sidebar-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.sidebar-list li { display: flex; align-items: baseline; gap: 0.5rem; }
+.sidebar-list li::before {
+  content: '—';
+  color: var(--moss);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.book-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--moss);
+  text-decoration: none;
+  font-weight: 500;
+}
+.book-link:hover { color: var(--ink); }
 
-  /* PROJECTS */
-  #projects { background: var(--forest); }
-  #projects .section-title { color: #f5ede4; }
-  #projects .section-label { color: #c4a48a; }
-  #projects .section-sub { color: rgba(245, 237, 228, 0.65); }
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
-  .project-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .project-card:hover {
-    transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.08);
-  }
-  .project-emoji {
-    font-size: 2rem;
-    margin-bottom: 1.25rem;
-    display: block;
-  }
-  .project-name {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: #f5ede4;
-    margin-bottom: 0.5rem;
-  }
-  .project-desc {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: rgba(245, 237, 228, 0.65);
-    margin-bottom: 1.25rem;
-  }
-  .project-links { display: flex; gap: 1rem; }
-  .project-link {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #c4a48a;
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    display: flex; align-items: center; gap: 0.3rem;
-    transition: color 0.2s;
-  }
-  .project-link:hover { color: #f5ede4; }
-  .project-chips .chip {
-    background: rgba(196, 164, 138, 0.15);
-    color: #c4a48a;
-    margin-bottom: 1rem;
-  }
+/* EXPERIENCE */
+#experience { background: var(--sage-pale); }
+.exp-grid { display: flex; flex-direction: column; gap: 2.5rem; }
+.exp-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(90,122,74,0.15);
+}
+.exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+.exp-meta {}
+.exp-date {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.exp-co {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--moss);
+  letter-spacing: 0.03em;
+}
+.exp-content {}
+.exp-role {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.exp-desc {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--ink-light);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag {
+  background: var(--parchment);
+  color: var(--moss);
+  border: 1px solid rgba(90,122,74,0.25);
+  padding: 3px 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
 
-  /* SKILLS */
-  #skills { background: var(--warm-white); }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  .skill-group {
-    background: var(--cream);
-    border: 1px solid var(--sand);
-    border-radius: 16px;
-    padding: 1.5rem;
-  }
-  .skill-group-title {
-    font-family: var(--serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--charcoal);
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--sand);
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .skill-tag {
-    background: var(--warm-white);
-    color: var(--body-text);
-    border: 1px solid var(--sand);
-    padding: 4px 14px;
-    border-radius: 100px;
-    font-size: 0.82rem;
-    font-weight: 400;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .skill-tag:hover { border-color: var(--terracotta); color: var(--terracotta); }
+/* FEATURED WORK */
+#projects { background: var(--ink); position: relative; overflow: hidden; }
+#projects::before {
+  content: '❧';
+  position: absolute;
+  bottom: -60px; right: -40px;
+  font-size: 30rem;
+  color: rgba(255,255,255,0.02);
+  line-height: 1;
+  pointer-events: none;
+}
+#projects .section-kicker { color: var(--sage); }
+#projects .section-kicker::after { background: var(--sage); }
+#projects .section-title { color: var(--parchment); }
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-top: 3.5rem;
+}
+.work-card {
+  background: var(--ink);
+  padding: 2.5rem 2rem;
+  transition: background 0.25s;
+  position: relative;
+}
+.work-card:hover { background: var(--ink-light); }
+.work-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--moss-light);
+  transition: width 0.3s ease;
+}
+.work-card:hover::after { width: 100%; }
+.work-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.work-name {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--parchment);
+  margin-bottom: 0.4rem;
+}
+.work-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+.work-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage);
+  border: 1px solid rgba(143,168,130,0.3);
+  padding: 2px 8px;
+}
+.work-desc {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: rgba(237, 231, 219, 0.6);
+  font-weight: 300;
+}
 
-  /* CONTACT */
-  #contact { background: var(--cream); }
-  .contact-inner {
-    max-width: 680px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .contact-inner .section-label { justify-content: center; display: flex; }
-  .contact-inner .section-title { text-align: center; }
-  .contact-sub {
-    font-size: 1rem;
-    color: var(--muted);
-    line-height: 1.75;
-    margin-bottom: 2.5rem;
-    text-align: center;
-  }
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 3rem;
-  }
-  .contact-btn {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.8rem 1.75rem;
-    border-radius: 100px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s;
-  }
-  .contact-btn.primary {
-    background: var(--terracotta); color: #fff;
-  }
-  .contact-btn.primary:hover { background: var(--forest); }
-  .contact-btn.outline {
-    border: 1.5px solid var(--sand-dark);
-    color: var(--charcoal);
-  }
-  .contact-btn.outline:hover { border-color: var(--terracotta); color: var(--terracotta); }
+/* SKILLS */
+#skills { background: var(--parchment-dark); }
+.skills-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.skill-card {
+  background: var(--parchment);
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--moss-pale);
+}
+.skill-card-title {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pill {
+  background: var(--sage-pale);
+  color: var(--ink-light);
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+.pill:hover { background: var(--moss-pale); }
 
-  /* FOOTER */
-  footer {
-    background: var(--charcoal);
-    color: var(--muted);
-    padding: 2rem max(2rem, 8vw);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.82rem;
-  }
-  footer a { color: var(--sand-dark); text-decoration: none; }
+/* CONTACT */
+#contact {
+  background: var(--moss);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+#contact::before {
+  content: '✦ ✦ ✦';
+  position: absolute;
+  top: 2rem; left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  color: rgba(255,255,255,0.2);
+}
+.contact-inner { max-width: 620px; margin: 0 auto; }
+#contact .section-kicker { color: rgba(255,255,255,0.5); justify-content: center; }
+#contact .section-kicker::after { background: rgba(255,255,255,0.3); }
+#contact .section-title { color: #fff; margin-bottom: 1.25rem; }
+.contact-sub {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+.contact-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+.cbtn {
+  padding: 0.75rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.cbtn-light { background: #fff; color: var(--moss); }
+.cbtn-light:hover { background: var(--parchment); }
+.cbtn-outline { border: 1px solid rgba(255,255,255,0.4); color: #fff; }
+.cbtn-outline:hover { background: rgba(255,255,255,0.1); }
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
-  .delay-1 { animation-delay: 0.15s; }
-  .delay-2 { animation-delay: 0.3s; }
-  .delay-3 { animation-delay: 0.45s; }
-  .delay-4 { animation-delay: 0.6s; }
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.3);
+  padding: 1.75rem max(2rem, 7vw);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
 
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .hero { grid-template-columns: 1fr; padding-top: 100px; }
-    .hero-visual { justify-content: center; order: -1; }
-    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    .timeline-item::after { display: none; }
-    .timeline-dot { display: none; }
-    .timeline-date { text-align: left; }
-    nav .nav-links { gap: 1rem; }
-  }
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade { opacity: 0; animation: fadeUp 0.8s ease forwards; }
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.25s; }
+.d3 { animation-delay: 0.4s; }
+.d4 { animation-delay: 0.55s; }
+.d5 { animation-delay: 0.7s; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { min-height: 100vh; }
+  .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  nav .nav-links { gap: 1.25rem; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">Cynthia Rico Cook</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="#projects">Work</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <main>
+
+<!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-text">
-    <div class="hero-eyebrow fade-up">Senior Software Engineer</div>
-    <h1 class="fade-up delay-1">
-      Full stack, high traffic, <em>real impact.</em>
-    </h1>
-    <p class="hero-bio fade-up delay-2">
-      I build consumer products that scale — currently at Alaska Airlines, where I helped launch a modern check-in platform handling 80,000+ reservations a day. I work across the full stack: React/TypeScript frontends, Node.js BFFs, Go microservices, and Kubernetes-based distributed systems.
+  <div class="hero-left">
+    <div class="hero-eyebrow fade d1">Senior Software Engineer</div>
+    <h1 class="hero-name fade d2">Cynthia<br><em>Rico Cook</em></h1>
+    <p class="hero-tagline fade d3">I build the things travelers depend on.<br>Complex problems, real-world impact.</p>
+    <p class="hero-bio fade d4">
+      I build high-traffic consumer products and distributed systems — currently at Alaska Airlines, where I helped launch a modern check-in platform handling hundreds of thousands of reservations daily. I work across the full stack: React/TypeScript, Node.js, Go, and Kubernetes.
     </p>
-    <div class="hero-ctas fade-up delay-3">
+    <div class="hero-ctas fade d5">
       <a href="#projects" class="btn-primary">See my work</a>
       <a href="#contact" class="btn-secondary">Get in touch</a>
     </div>
-    <div class="hero-stats fade-up delay-4">
-      <div>
-        <div class="stat-num">5+</div>
-        <div class="stat-label">Years experience</div>
-      </div>
-      <div>
-        <div class="stat-num">80K+</div>
-        <div class="stat-label">Daily reservations</div>
-      </div>
-      <div>
-        <div class="stat-num">8+</div>
-        <div class="stat-label">Technologies</div>
-      </div>
-    </div>
   </div>
-  <div class="hero-visual fade-up delay-2">
-    <div style="position: relative;">
-      <div class="avatar-wrap">
-        <!-- Replace with: <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
-        <span class="avatar-placeholder">:)</span>
+  <div class="hero-right">
+    <div class="avatar-frame">
+      <!-- Replace with: <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+      <span class="avatar-placeholder">C</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">6+</span>
+        <span class="stat-label">Years</span>
       </div>
-      <span class="avatar-hint">← swap in your photo here</span>
+      <div class="stat">
+        <span class="stat-num">80K</span>
+        <span class="stat-label">Daily res.</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">8+</span>
+        <span class="stat-label">Technologies</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="about-grid">
-    <div class="about-text">
-      <div class="section-label">About me</div>
-      <h2 class="section-title">Engineer by craft,<br>builder by passion.</h2>
+  <div class="about-layout">
+    <div class="about-body">
+      <div class="section-header">
+        <div class="section-kicker">About me</div>
+        <h2 class="section-title">Engineer. Builder.<br><em>Curious person.</em></h2>
+      </div>
       <p>
-        I'm a senior full stack software engineer with <strong>6 years of experience</strong> building and shipping high-traffic, user-facing systems at scale. I'm especially motivated by working on systems that people rely on every day — where reliability and thoughtful user experience really matter.
+        I'm a senior full stack software engineer with <strong>6 years of experience</strong> building high-traffic, user-facing systems. What keeps me excited about this work is the product itself — I genuinely love digging into complex business rules, understanding why they exist, and figuring out how to translate them into software that actually works for real people.
       </p>
       <p>
-        I like understanding how a product works end-to-end: from the frontend experience all the way through backend services and APIs. At Alaska Airlines, I've helped rebuild the online check-in platform from the ground up — designing service contracts between React UIs, Node.js BFFs, and Go microservices — while staying close to the guest experience to make sure what we ship actually works for real people.
+        At Alaska Airlines I've gotten deep into the airline industry — working with native Sabre to handle reservations, learning the regulatory requirements airlines have to follow, and building check-in experiences that serve tens of thousands of travelers every day. There's something thrilling about knowing the features I ship are making a real difference in how people travel.
       </p>
+      <blockquote class="about-pull">
+        "I love learning about all the business rules and solving the complex problems that come with them. It's really fun work."
+      </blockquote>
       <p>
-        Before Alaska Airlines, I built full-stack e-commerce and CMS products at Sitecore. I studied Computer Science at Augsburg University and am based in Minneapolis — open to remote roles.
+        Before Alaska Airlines, I built full-stack e-commerce products at Four51 (acquired by Sitecore in 2021), where I was hired full-time after an internship. I studied Computer Science at Augsburg University and am based in Minneapolis — working fully remote.
       </p>
     </div>
-    <div class="about-aside">
-      <div class="aside-card">
-        <div class="aside-card-title">Currently based in</div>
-        <div style="font-size: 1rem; color: var(--charcoal); font-weight: 500;">Minneapolis, MN</div>
-        <div style="font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem;">Open to remote &amp; hybrid roles</div>
+    <div class="sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-label">Based in</div>
+        <p style="font-weight:500; color: var(--ink);">Minneapolis, MN</p>
+        <p style="margin-top:0.25rem; font-size:0.82rem; color:var(--muted);">Open to remote only</p>
       </div>
-      <div class="aside-card">
-        <div class="aside-card-title">What I value</div>
-        <ul class="values-list">
+      <div class="sidebar-block">
+        <div class="sidebar-label">What I value</div>
+        <ul class="sidebar-list">
           <li>End-to-end ownership</li>
           <li>Clear technical communication</li>
           <li>Mentorship &amp; team growth</li>
           <li>Translating product ↔ engineering</li>
         </ul>
       </div>
-      <div class="aside-card">
-        <div class="aside-card-title">Beyond the keyboard</div>
-        <ul class="values-list">
-          <li>Foraging for wild plants & mushrooms 🍄</li>
-          <li>Growing a garden (and eating it)</li>
-          <li>Exploring herbal & natural remedies</li>
+      <div class="sidebar-block">
+        <div class="sidebar-label">Beyond the keyboard</div>
+        <p>Outside of engineering, I'm a certified Integrative Nutrition Health Coach with a deep love for natural living. I forage for wild plants and mushrooms, grow my own garden, and blend my own herbal and mushroom teas and tinctures. I'm endlessly curious — always learning something new about the natural world. Someday I'd love to turn that passion into a wellness brand, but for now I'm just enjoying the journey.</p>
+      </div>
+      <div class="sidebar-block">
+        <div class="sidebar-label">Certifications</div>
+        <ul class="sidebar-list">
+          <li>Integrative Nutrition Health Coach — Institute for Integrative Nutrition (2023)</li>
         </ul>
+      </div>
+      <div class="sidebar-block">
+        <div class="sidebar-label">Published work</div>
+        <p>Co-authored <em>Nature's Cookbook — Acknowledging The Gifts of Nature Through Cooking, Gardening &amp; Healing</em>, part of CEED's educational curriculum.</p>
+        <a class="book-link" href="https://ceed.org/resource/natures-cookbook/#_" target="_blank">Read it →</a>
       </div>
     </div>
   </div>
@@ -602,125 +679,110 @@
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="section-label">Experience</div>
-  <h2 class="section-title">Where I've built.</h2>
-  <p class="section-sub">A career of shipping real things for real users.</p>
+  <div class="section-header">
+    <div class="section-kicker">Experience</div>
+    <h2 class="section-title">Where I've <em>built.</em></h2>
+  </div>
+  <div class="exp-grid">
 
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <div class="timeline-date">2022 – Present<div class="timeline-dot"></div></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Senior Software Engineer</div>
-        <div class="timeline-company">✈️ Alaska Airlines</div>
-        <p class="timeline-desc">
-          Helped build and launch a modern online check-in platform replacing a legacy system — now handling ~80,000 reservations daily across web and mobile. Led full-stack initiatives across the check-in surface: built group reservation check-in, enhanced reservation search APIs, and an international document verification microsite integrating with Jumio. Improved international check-in success rate by 0.6% through production log analysis and targeted backend fixes. Served as technical point person coordinating integrations across Payments, Seats, and Content systems while mentoring engineers and onboarding teammates.
-        </p>
-        <div class="chips">
-          <span class="chip">React</span>
-          <span class="chip">Vue</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">Node.js BFF</span>
-          <span class="chip">Go</span>
-          <span class="chip">gRPC</span>
-          <span class="chip">Kubernetes</span>
-          <span class="chip">Docker</span>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">2022 — Present</div>
+        <div class="exp-co">Alaska Airlines</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Senior Software Engineer</div>
+        <p class="exp-desc">Helped build and launch a modern online check-in platform replacing a legacy system — now handling hundreds of thousands of reservations daily across web and mobile. Through this work I learned the entire airline industry from scratch: Sabre reservations, regulatory requirements, and the complex business rules that govern how people actually travel.</p>
+        <p class="exp-desc" style="margin-top: 0.75rem;">Led or contributed to some of the platform's most complex features: lap infant check-in, unaccompanied minor check-in, group reservations, non-revenue reservations, and technical support for Alaska's acquisition of Hawaiian Airlines — a company-scale initiative that required the check-in platform to work seamlessly for an entirely new set of travelers and reservation types. Improved international check-in success rate by 0.6% through production log analysis and targeted backend fixes.</p>
+        <p class="exp-desc" style="margin-top: 0.75rem;">The go-to engineer for frontend questions across the check-in surface, and a shared domain resource for partner teams like Seats — people come to me when they need to understand how the product works, not just the code. Mentored a 2024 summer intern and helped onboard incoming engineers to the platform.</p>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">Vue</span><span class="tag">TypeScript</span>
+          <span class="tag">Node.js BFF</span><span class="tag">Go</span><span class="tag">gRPC</span>
+          <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Azure</span>
+          <span class="tag">ArgoCD</span><span class="tag">Sumo Logic</span>
         </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-date">Jan 2020 – 2022<div class="timeline-dot"></div></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Full Stack Developer</div>
-        <div class="timeline-company">🏢 Four51 → Sitecore <span style="font-weight: 400; color: var(--muted);">(acquired Mar 2021)</span></div>
-        <p class="timeline-desc">
-          Built full-stack e-commerce solutions for clients adopting Four51's OrderCloud platform — a B2B commerce API product. Developed backend integrations and frontend components enabling dynamic storefronts, content personalization, and transactional workflows. Contributed to architecture decisions and implemented patterns for maintainable, modular applications. Four51 was acquired by Sitecore in March 2021.
-        </p>
-        <div class="chips">
-          <span class="chip">JavaScript</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">React</span>
-          <span class="chip">Node.js</span>
-          <span class="chip">OrderCloud</span>
-          <span class="chip">E-commerce</span>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">Jan 2020 — 2022</div>
+        <div class="exp-co">Four51 → Sitecore</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Full Stack Developer <span style="font-size:0.8rem; font-weight:300; color:var(--muted);">(acquired Mar 2021)</span></div>
+        <p class="exp-desc">Built full-stack e-commerce solutions for clients adopting Four51's OrderCloud platform — a B2B commerce API product. Developed backend integrations and frontend components enabling dynamic storefronts, personalization, and transactional workflows. Contributed to architecture decisions and implemented patterns for maintainable, modular applications.</p>
+        <div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
+          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">OrderCloud</span>
         </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-date">Jun – Aug 2019<div class="timeline-dot"></div></div>
-      <div class="timeline-content">
-        <div class="timeline-role">Software Engineering Intern</div>
-        <div class="timeline-company">🏢 Four51</div>
-        <p class="timeline-desc">
-          Interned at Four51 while completing my CS degree at Augsburg — and was hired full-time upon graduation. Got my first real exposure to building e-commerce products on the OrderCloud platform.
-        </p>
-        <div class="chips">
-          <span class="chip">JavaScript</span>
-          <span class="chip">OrderCloud</span>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">Jun — Aug 2019</div>
+        <div class="exp-co">Four51</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Software Engineering Intern</div>
+        <p class="exp-desc">Interned at Four51 while completing my CS degree at Augsburg — and was hired full-time upon graduation. Got my first real exposure to building e-commerce products on the OrderCloud platform.</p>
+        <div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">OrderCloud</span>
         </div>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-date">2016 – 2019<div class="timeline-dot"></div></div>
-      <div class="timeline-content">
-        <div class="timeline-role">B.S. in Computer Science</div>
-        <div class="timeline-company">🎓 Augsburg University — Minneapolis, MN</div>
-        <p class="timeline-desc">
-          Studied Computer Science with a focus on software engineering fundamentals. Graduated December 2019.
-        </p>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-date">2016 — 2019</div>
+        <div class="exp-co">Augsburg University</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">B.S. in Computer Science</div>
+        <p class="exp-desc">Minneapolis, MN. Graduated December 2019.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- FEATURED WORK -->
 <section id="projects">
-  <div class="section-label">Featured work</div>
-  <h2 class="section-title">Problems I've solved.</h2>
-  <p class="section-sub">Case studies from my work at Alaska Airlines — real systems, real users, real impact.</p>
+  <div class="section-header">
+    <div class="section-kicker">Featured work</div>
+    <h2 class="section-title">Problems I've <em>solved.</em></h2>
+  </div>
+  <div class="works-grid">
 
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <span class="project-emoji">✈️</span>
-      <div class="project-name">Modern Check-In Platform</div>
-      <div class="project-chips chips">
-        <span class="chip">React</span>
-        <span class="chip">Vue</span>
-        <span class="chip">Node.js BFF</span>
-        <span class="chip">Go</span>
-        <span class="chip">Kubernetes</span>
+    <div class="work-card">
+      <span class="work-icon">✈️</span>
+      <div class="work-name">Modern Check-In Platform</div>
+      <div class="work-tags">
+        <span class="work-tag">React</span><span class="work-tag">Vue</span>
+        <span class="work-tag">Node.js BFF</span><span class="work-tag">Go</span><span class="work-tag">K8s</span>
       </div>
-      <p class="project-desc">Alaska Airlines' legacy check-in system needed replacing. I was part of the team that built the new internally-owned platform from scratch — now handling ~80,000 reservations daily across web and mobile. I owned full-stack feature delivery, defined frontend ↔ BFF ↔ backend service contracts, and served as technical point person coordinating integrations across Payments, Seats, and Content systems.</p>
+      <p class="work-desc">Alaska Airlines' legacy check-in system needed replacing. I helped build the new platform from scratch — now handling hundreds of thousands of reservations daily. Along the way I led some of the hardest features: lap infants, unaccompanied minors, group reservations, non-revenue travelers, and supporting Alaska's acquisition of Hawaiian Airlines. Each one required deeply understanding the business rules before writing a single line of code.</p>
     </div>
 
-    <div class="project-card">
-      <span class="project-emoji">🌍</span>
-      <div class="project-name">International Document Verification</div>
-      <div class="project-chips chips">
-        <span class="chip">TypeScript</span>
-        <span class="chip">Node.js</span>
-        <span class="chip">Go</span>
-        <span class="chip">Jumio</span>
-        <span class="chip">gRPC</span>
+    <div class="work-card">
+      <span class="work-icon">🌍</span>
+      <div class="work-name">International Document Verification</div>
+      <div class="work-tags">
+        <span class="work-tag">TypeScript</span><span class="work-tag">Node.js</span>
+        <span class="work-tag">Go</span><span class="work-tag">Jumio</span><span class="work-tag">gRPC</span>
       </div>
-      <p class="project-desc">International travelers needed a way to verify travel documents without calling the airport. I built and owned the document verification microsite end-to-end — integrating with Jumio's identity verification API, designing the backend service contracts, and handling complex edge cases in the guest-facing flow. The result: a fully self-service experience that reduced operational support load.</p>
+      <p class="work-desc">International travelers needed a self-service way to verify travel documents. I built and owned the verification microsite end-to-end — integrating with Jumio's identity API, designing backend service contracts, and handling complex edge cases. Result: a fully self-service experience that reduced operational support load.</p>
     </div>
 
-    <div class="project-card">
-      <span class="project-emoji">👥</span>
-      <div class="project-name">Group Reservation Check-In</div>
-      <div class="project-chips chips">
-        <span class="chip">React</span>
-        <span class="chip">TypeScript</span>
-        <span class="chip">Node.js BFF</span>
-        <span class="chip">Go</span>
+    <div class="work-card">
+      <span class="work-icon">👥</span>
+      <div class="work-name">Group Reservation Check-In</div>
+      <div class="work-tags">
+        <span class="work-tag">React</span><span class="work-tag">TypeScript</span>
+        <span class="work-tag">Node.js BFF</span><span class="work-tag">Go</span>
       </div>
-      <p class="project-desc">Group bookings had no self-service check-in path, pushing travelers to call centers and congesting airports. I led and delivered group reservation check-in and enhanced search APIs — implementing passenger-level authorization, supporting both migrated and legacy reservation formats, and coordinating across backend teams to ship a reliable experience at scale.</p>
+      <p class="work-desc">Group bookings had no self-service check-in path, pushing travelers to call centers and congesting airports. I led and delivered group reservation check-in and enhanced search APIs — implementing passenger-level authorization and supporting both migrated and legacy reservation formats at scale.</p>
     </div>
 
   </div>
@@ -728,66 +790,51 @@
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="section-label">Skills</div>
-  <h2 class="section-title">My toolkit.</h2>
-  <p class="section-sub">Technologies I've used in production and can speak to confidently in an interview.</p>
-
-  <div class="skills-grid">
-    <div class="skill-group">
-      <div class="skill-group-title">Languages</div>
-      <div class="skill-tags">
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Go</span>
+  <div class="section-header">
+    <div class="section-kicker">Skills</div>
+    <h2 class="section-title">My <em>toolkit.</em></h2>
+  </div>
+  <div class="skills-layout">
+    <div class="skill-card">
+      <div class="skill-card-title">Languages</div>
+      <div class="skill-pills">
+        <span class="pill">TypeScript</span><span class="pill">JavaScript</span><span class="pill">Go</span>
       </div>
     </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Frontend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">Vue.js</span>
-        <span class="skill-tag">Component-based UI</span>
-        <span class="skill-tag">Responsive design</span>
+    <div class="skill-card">
+      <div class="skill-card-title">Frontend</div>
+      <div class="skill-pills">
+        <span class="pill">React</span><span class="pill">Vue.js</span>
+        <span class="pill">Component-based UI</span><span class="pill">Responsive design</span>
       </div>
     </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Backend &amp; APIs</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Node.js (BFF)</span>
-        <span class="skill-tag">gRPC</span>
-        <span class="skill-tag">REST API design</span>
-        <span class="skill-tag">Microservices</span>
+    <div class="skill-card">
+      <div class="skill-card-title">Backend &amp; APIs</div>
+      <div class="skill-pills">
+        <span class="pill">Node.js (BFF)</span><span class="pill">gRPC</span>
+        <span class="pill">REST API design</span><span class="pill">Microservices</span>
       </div>
     </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Infrastructure &amp; Observability</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Kubernetes</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">Microsoft Azure</span>
-        <span class="skill-tag">ArgoCD</span>
-        <span class="skill-tag">CI/CD</span>
-        <span class="skill-tag">Sumo Logic</span>
+    <div class="skill-card">
+      <div class="skill-card-title">Infrastructure &amp; Observability</div>
+      <div class="skill-pills">
+        <span class="pill">Kubernetes</span><span class="pill">Docker</span>
+        <span class="pill">Microsoft Azure</span><span class="pill">ArgoCD</span>
+        <span class="pill">Sumo Logic</span><span class="pill">CI/CD</span>
       </div>
     </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Practices</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Distributed systems</span>
-        <span class="skill-tag">Observability</span>
-        <span class="skill-tag">Production debugging</span>
-        <span class="skill-tag">System design</span>
-        <span class="skill-tag">On-call</span>
+    <div class="skill-card">
+      <div class="skill-card-title">Practices</div>
+      <div class="skill-pills">
+        <span class="pill">Distributed systems</span><span class="pill">Observability</span>
+        <span class="pill">Production debugging</span><span class="pill">System design</span><span class="pill">On-call</span>
       </div>
     </div>
-    <div class="skill-group">
-      <div class="skill-group-title">Collaboration</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Technical design docs</span>
-        <span class="skill-tag">Mentorship</span>
-        <span class="skill-tag">Cross-team alignment</span>
-        <span class="skill-tag">Product collaboration</span>
-        <span class="skill-tag">GitHub Copilot</span>
+    <div class="skill-card">
+      <div class="skill-card-title">Collaboration</div>
+      <div class="skill-pills">
+        <span class="pill">Technical design docs</span><span class="pill">Mentorship</span>
+        <span class="pill">Cross-team alignment</span><span class="pill">GitHub Copilot</span>
       </div>
     </div>
   </div>
@@ -796,20 +843,21 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
-    <div class="section-label">Contact</div>
+    <div class="section-kicker">Contact</div>
     <h2 class="section-title">Let's talk.</h2>
     <p class="contact-sub">
-      I'm open to senior and staff engineering roles — particularly teams building high-traffic consumer products, distributed systems, or complex full-stack experiences. If you're working on something interesting, I'd love to talk.
+      I'm open to senior and staff engineering roles — particularly teams building products with complex real-world business rules — where the hard part isn't just the code, it's deeply understanding the domain. I work fully remote — if you're building something interesting, I'd love to hear about it.
     </p>
-    <div class="contact-links">
-      <a href="/cdn-cgi/l/email-protection#76041f1519150f18021e1f174336111b171f1a5815191b" class="contact-btn primary">Email me</a>
-      <a href="https://linkedin.com/in/cynthia-rico-cook-a4b3aa148" class="contact-btn outline">LinkedIn</a>
-      <a href="resume.pdf" class="contact-btn outline">Resume ↓</a>
+    <div class="contact-btns">
+      <a href="/cdn-cgi/l/email-protection#95e7fcf6faf6ecfbe1fdfcf4a0d5f2f8f4fcf9bbf6faf8" class="cbtn cbtn-light">Email me</a>
+      <a href="https://linkedin.com/in/cynthia-rico-cook-a4b3aa148" class="cbtn cbtn-outline">LinkedIn</a>
+      <a href="resume.pdf" class="cbtn cbtn-outline">Resume ↓</a>
     </div>
   </div>
 </section>
+
 </main>
 
 <footer>
   <span>© 2026 Cynthia Rico Cook</span>
-  <span>Built with care · Minne
+  <span>Minne
