@@ -30,7 +30,7 @@ function ProjectCard({ project }) {
       </div>
       <div className="project-body">
         <div className="project-name">{project.name}</div>
-        <p className="project-desc">{project.desc}</p>
+        <p className="project-desc">{project.description}</p>
         <div className="tags" style={{ marginBottom: '1rem' }}>
           {project.tags.map(t => <span key={t} className="tag">{t}</span>)}
         </div>

@@ -91,7 +91,7 @@ export const projects = [
   {
     name: 'Botanica API',
     description:
-      'The backend powering Forage & Heal — a Go API built with gRPC and a REST wrapper using the BFF pattern I use daily at Alaska Airlines. Serves herbal remedy recipes from my personal wellness practice.',
+      'The backend powering Forage & Heal. A Go API built with gRPC and a REST wrapper using the BFF pattern I use daily at Alaska Airlines. Serves herbal remedy recipes from my personal wellness practice.',
     tags: ['Go', 'gRPC', 'Protocol Buffers', 'Railway'],
     github: 'https://github.com/ricocynthia/botanica',
     live: 'https://botanica-production.up.railway.app',
