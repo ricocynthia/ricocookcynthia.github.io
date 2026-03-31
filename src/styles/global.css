@@ -1,0 +1,24 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #F7F3EE;
+  --warm-white: #FDFAF6;
+  --bark: #3D2B1F;
+  --moss: #4A5E45;
+  --clay: #C4825A;
+  --sage: #8FA68A;
+  --parchment: #EDE5D8;
+  --stone: #8C8277;
+  --ink: #2A1F17;
+  --leaf: #6B8C5F;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+}

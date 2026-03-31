@@ -1,0 +1,78 @@
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--parchment);
+  padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 58px;
+}
+.nav-name {
+  font-family: 'Lora', serif;
+  font-size: 15px;
+  color: var(--bark);
+  letter-spacing: 0.01em;
+}
+
+/* Desktop links */
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-size: 13px; font-weight: 400; color: var(--stone);
+  text-decoration: none; letter-spacing: 0.04em;
+  text-transform: uppercase; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--clay); }
+
+/* Hamburger button — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  padding: 4px; width: 32px; height: 32px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--bark);
+  transition: transform 0.25s, opacity 0.25s;
+  transform-origin: center;
+}
+/* Animate to X when open */
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile drawer */
+.nav-drawer {
+  position: fixed; top: 58px; left: 0; right: 0; z-index: 199;
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--parchment);
+  display: flex; flex-direction: column;
+  padding: 0 1.5rem;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.nav-drawer.open {
+  max-height: 300px;
+  padding: 1rem 1.5rem 1.5rem;
+}
+.nav-drawer a {
+  font-size: 14px; font-weight: 400; color: var(--stone);
+  text-decoration: none; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--parchment);
+  transition: color 0.2s;
+}
+.nav-drawer a:last-child { border-bottom: none; }
+.nav-drawer a:hover { color: var(--clay); }
+
+/* Backdrop */
+.nav-backdrop {
+  position: fixed; inset: 0; z-index: 198;
+  background: rgba(42, 31, 23, 0.2);
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}

@@ -1,0 +1,39 @@
+.beyond-section {
+  background: var(--parchment);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  padding: 5rem 4rem;
+}
+.beyond-body p { font-size: 1rem; color: var(--stone); line-height: 1.8; margin-bottom: 1.25rem; }
+.beyond-body p strong { color: var(--bark); font-weight: 500; }
+.book-card {
+  background: var(--warm-white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 4px; padding: 2rem;
+  display: flex; gap: 1.5rem; align-items: flex-start;
+}
+.book-spine {
+  width: 52px; min-width: 52px; height: 78px;
+  background: var(--moss); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+.book-info-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--clay); margin-bottom: 0.4rem;
+}
+.book-title { font-family: 'Lora', serif; font-size: 1.05rem; color: var(--bark); line-height: 1.4; margin-bottom: 0.5rem; }
+.book-desc { font-size: 0.85rem; color: var(--stone); line-height: 1.6; }
+
+.project-link {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--clay);
+  text-decoration: none; border-bottom: 1px solid transparent;
+  padding-bottom: 1px; transition: border-color 0.2s;
+}
+.project-link:hover { border-color: var(--clay); }
+
+@media (max-width: 768px) {
+  .beyond-section { grid-template-columns: 1fr; gap: 2rem; padding: 3.5rem 1.75rem; }
+}
