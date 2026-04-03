@@ -120,3 +120,16 @@ export const contact = {
   intro:
     "I'm open to senior engineering roles — especially teams building products with complex real-world business rules where the hard part isn't just the code, it's deeply understanding how the business actually works. Remote only.",
 }
+
+export const caseStudies = [
+  {
+    id: 'hawaiian-acquisition',
+    name: "Designing the Check-in Search API for Alaska Airlines' Hawaiian Airlines Acquisition",
+    description: 'A two-layer feature flag strategy and phased reservation search system to support a hard cutover merger, with no downtime and no guest-facing disruption.',
+    timeline: 'About a month',
+    color: 'slate',
+    tags: ['Go', 'gRPC', 'Node.js BFF', 'Optimizely'],
+    path: '/case-studies/hawaiian-acquisition',
+  },
+]
+ 
