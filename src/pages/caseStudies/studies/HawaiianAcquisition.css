@@ -1,0 +1,66 @@
+/* HA-specific styles only. Shared layout styles live in CaseStudyLayout.css */
+
+.ha-flag-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 600px) {
+  .ha-flag-row { grid-template-columns: 1fr; }
+}
+
+.ha-flag-card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+
+.ha-flag-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-muted, #999);
+  margin-bottom: 0.4rem;
+}
+
+.ha-flag-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text, #1a1a1a);
+  margin-bottom: 0.5rem;
+}
+
+.ha-flag-body {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--color-muted, #666);
+}
+
+.ha-diagram-wrap {
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(0, 0, 0, 0.01);
+  overflow-x: auto;
+}
+
+.ha-diagram text {
+  font-family: 'DM Sans', sans-serif;
+  fill: var(--color-text, #1a1a1a);
+}
+
+.ha-th { font-size: 14px; font-weight: 500; }
+.ha-ts { font-size: 12px; fill: var(--color-muted, #666); }
+.ha-arr { stroke: rgba(0, 0, 0, 0.3); stroke-width: 1; fill: none; }
+
+.ha-gray rect { fill: rgba(0,0,0,0.04); stroke: rgba(0,0,0,0.12); }
+.ha-teal rect  { fill: #E1F5EE; stroke: #1D9E75; }
+.ha-coral rect { fill: #FAECE7; stroke: #D85A30; }
+
+.ha-teal .ha-th  { fill: #085041; }
+.ha-teal .ha-ts  { fill: #0F6E56; }
+.ha-coral .ha-th { fill: #712B13; }
+.ha-coral .ha-ts { fill: #993C1D; }
