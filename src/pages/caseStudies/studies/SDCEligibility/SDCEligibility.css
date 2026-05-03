@@ -1,0 +1,19 @@
+/* SDC-specific styles only. Shared layout styles live in CaseStudyLayout.css */
+
+.sdc-diagram-wrap {
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(0, 0, 0, 0.01);
+  overflow-x: auto;
+}
+
+.sdc-diagram text {
+  font-family: 'DM Sans', sans-serif;
+  fill: var(--color-text, #1a1a1a);
+}
+
+.sdc-th { font-size: 14px; font-weight: 500; }
+.sdc-ts { font-size: 12px; fill: var(--color-muted, #666); }
+.sdc-arr { stroke: rgba(0, 0, 0, 0.3); stroke-width: 1; fill: none; }

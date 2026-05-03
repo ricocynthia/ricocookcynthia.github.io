@@ -1,4 +1,4 @@
-import CaseStudyLayout from '../CaseStudyLayout'
+import CaseStudyLayout from '../../CaseStudyLayout'
 import './HawaiianAcquisition.css'
 
 const meta = [
