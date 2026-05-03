@@ -131,5 +131,14 @@ export const caseStudies = [
     tags: ['Go', 'gRPC', 'Node.js BFF', 'Optimizely'],
     path: '/case-studies/hawaiian-acquisition',
   },
+  {
+    id: 'sdc-eligibility',
+    name: "Improving SDC Eligibility Endpoint for Alaska Airlines",
+    description: 'A logic bug fix to correctly map non-eligibility to a 200 response instead of a 404, ensuring accurate business outcomes and monitoring.',
+    timeline: '1 hour',
+    color: 'golden',
+    tags: ['Node.js BFF', 'Debugging', 'Production Logs'],
+    path: '/case-studies/sdc-eligibility',
+  },
 ]
  
