@@ -1,55 +1,102 @@
-import { projects } from '../data/portfolio.js'
+import { useState } from 'react'
+import { useInView } from '../hooks/useInView'
 import './Projects.css'
 
-function ProjectIcon({ color }) {
-  console.log('rendering icon with color', color)
-  if (color === 'moss') return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-      <path d="M20 38 Q20 20 20 8" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5"/>
-      <ellipse cx="14" cy="22" rx="10" ry="5" fill="rgba(255,255,255,0.15)" transform="rotate(-20 14 22)"/>
-      <ellipse cx="26" cy="18" rx="9" ry="4.5" fill="rgba(255,255,255,0.15)" transform="rotate(15 26 18)"/>
-      <ellipse cx="13" cy="14" rx="8" ry="4" fill="rgba(255,255,255,0.15)" transform="rotate(-30 13 14)"/>
-      <ellipse cx="27" cy="11" rx="7" ry="3.5" fill="rgba(255,255,255,0.15)" transform="rotate(25 27 11)"/>
-    </svg>
-  )
-  return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-      <circle cx="20" cy="20" r="12" stroke="rgba(255,255,255,0.4)" strokeWidth="1"/>
-      <circle cx="20" cy="20" r="7" stroke="rgba(255,255,255,0.3)" strokeWidth="1"/>
-      <circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.35)"/>
-      <path d="M20 8 L20 4 M20 36 L20 32 M8 20 L4 20 M36 20 L32 20" stroke="rgba(255,255,255,0.3)" strokeWidth="1.2"/>
-    </svg>
-  )
-}
+const SPECIMENS = [
+  {
+    num: 'No. 01 · React · 2024',
+    name: 'Forage & Heal',
+    latin: 'Plantago herbaceum',
+    desc: 'A searchable reference for wild plants and medicinal mushrooms in Minnesota. Search by name or healing property, filter by category.',
+    tags: ['frontend', 'nature'],
+    stack: 'React · GH Pages',
+    github: 'https://github.com/ricocynthia/forage-and-heal',
+    live: 'https://ricocynthia.github.io/forage-and-heal/',
+    size: 'sz-half',
+    img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1400&q=80',
+  },
+  {
+    num: 'No. 02 · Go · 2024',
+    name: 'Botanica API',
+    latin: 'Backendus officinalis',
+    desc: 'The Go backend powering Forage & Heal. gRPC + REST BFF — the same pattern I use daily at Alaska.',
+    tags: ['backend', 'nature'],
+    stack: 'Go · gRPC · Railway',
+    github: 'https://github.com/ricocynthia/botanica',
+    size: 'sz-half',
+    img: 'https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?auto=format&fit=crop&w=1200&q=80',
+  },
+]
 
-function ProjectCard({ project }) {
+const FILTERS = ['all', 'frontend', 'backend', 'nature']
+
+function SpecCard({ spec, hidden }) {
   return (
-    <div className="project-card">
-      <div className={`project-top ${project.color}`}>
-        <ProjectIcon color={project.color} />
+    <article
+      className={`spec-card ${spec.size}`}
+      style={{
+        opacity: hidden ? '.18' : '1',
+        transform: hidden ? 'scale(.97)' : '',
+        filter: hidden ? 'grayscale(.6)' : '',
+        pointerEvents: hidden ? 'none' : 'auto',
+        transition: 'opacity .3s, transform .3s, filter .3s',
+      }}
+    >
+      <div className="spec-img">
+        <img src={spec.img} alt="" />
       </div>
-      <div className="project-body">
-        <div className="project-name">{project.name}</div>
-        <p className="project-desc">{project.description}</p>
-        <div className="tags" style={{ marginBottom: '1rem' }}>
-          {project.tags.map(t => <span key={t} className="tag">{t}</span>)}
+      <div className="spec-body">
+        <div className="spec-num">{spec.num}</div>
+        <div>
+          <div className="spec-name">{spec.name}</div>
+          <div className="spec-latin">{spec.latin}</div>
+          <p className="spec-desc">{spec.desc}</p>
         </div>
-        <div className="project-links">
-          <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href={project.live} className="project-link" target="_blank" rel="noopener noreferrer">Live app</a>
+        <div className="spec-meta">
+          <span>{spec.stack}</span>
+          <span className="spec-links">
+            {spec.github && <a href={spec.github} target="_blank" rel="noopener noreferrer">GitHub <span className="arr">↗</span></a>}
+            {spec.live && <a href={spec.live} target="_blank" rel="noopener noreferrer">Live <span className="arr">↗</span></a>}
+          </span>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 
 export default function Projects() {
+  const [filter, setFilter] = useState('all')
+  const [ref, inView] = useInView()
+
   return (
-    <section id="projects" className="projects-section">
-      <p className="section-label">Projects</p>
-      <h2 className="section-title">Things I build <em>for fun.</em></h2>
-      <div className="projects-grid">
-        {projects.map(p => <ProjectCard key={p.id} project={p} />)}
+    <section id="projects" className="specimen">
+      <div className="spec-head reveal in">
+        <div>
+          <p className="eyebrow">Specimen gallery</p>
+          <h2 className="section-title">Things I build <span className="it">for fun.</span></h2>
+        </div>
+        <div className="spec-tabs">
+          {FILTERS.map(f => (
+            <button
+              key={f}
+              className={`spec-tab ${filter === f ? 'active' : ''}`}
+              onClick={() => setFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+        <span className="section-num">§ 04 / 07</span>
+      </div>
+
+      <div className={`spec-grid stagger ${inView ? 'in' : ''}`} ref={ref}>
+        {SPECIMENS.map(s => (
+          <SpecCard
+            key={s.name}
+            spec={s}
+            hidden={filter !== 'all' && !s.tags.includes(filter)}
+          />
+        ))}
       </div>
     </section>
   )

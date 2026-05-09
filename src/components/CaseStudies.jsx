@@ -1,38 +1,70 @@
 import { useNavigate } from 'react-router-dom'
+import { useInView } from '../hooks/useInView'
 import { caseStudies } from '../data/portfolio.js'
 import './CaseStudies.css'
 
-function CaseStudyCard({ study }) {
+const IMAGES = {
+  'hawaiian-acquisition': 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=80',
+  'sdc-eligibility': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
+}
+
+const META = {
+  'hawaiian-acquisition': { timeline: '~ One month', role: 'Tech lead', context: 'Alaska × Hawaiian' },
+  'sdc-eligibility': { timeline: 'A few days', role: 'Investigator', context: 'Bug discovery + handoff' },
+}
+
+function CaseCard({ study, flip, index }) {
   const navigate = useNavigate()
+  const [ref, inView] = useInView()
+  const m = META[study.id] || {}
+
   return (
-    <div className="cs-card" onClick={() => navigate(study.path)}>
-      <div className={`cs-card-top ${study.color}`}>
-        <div className="cs-card-label">Case study</div>
-        <div className="cs-card-tag-row">
-          {study.tags.slice(0, 3).map(t => (
-            <span key={t} className="cs-tag">{t}</span>
-          ))}
-        </div>
+    <a
+      className={`case-card reveal ${inView ? 'in' : ''} ${flip ? 'case-card-flip' : ''}`}
+      ref={ref}
+      href="#"
+      onClick={e => { e.preventDefault(); navigate(study.path) }}
+    >
+      <div className="case-img">
+        <img src={IMAGES[study.id]} alt="" />
+        <span className="case-stamp">No. {String(index + 1).padStart(2, '0')}</span>
       </div>
-      <div className="cs-card-body">
-        <div className="cs-card-name">{study.name}</div>
-        <p className="cs-card-desc">{study.description}</p>
-        <div className="cs-card-meta">
-          <span className="cs-card-timeline">{study.timeline}</span>
-          <span className="cs-card-link">Read case study →</span>
+      <div className="case-body">
+        <div>
+          <div className="case-meta">
+            <span>{m.timeline}</span>
+            <span className="case-sep">/</span>
+            <span>{m.role}</span>
+            <span className="case-sep">/</span>
+            <span>{m.context}</span>
+          </div>
+          <div className="case-name">{study.name}</div>
+          <p className="case-desc">{study.description}</p>
+          <div className="case-tags">
+            {study.tags.map(t => <span key={t} className="case-tag">{t}</span>)}
+          </div>
         </div>
+        <span className="case-cta">Read case study<span>→</span></span>
       </div>
-    </div>
+    </a>
   )
 }
 
 export default function CaseStudies() {
+  const [ref, inView] = useInView()
   return (
-    <section id="case-studies" className="cs-section">
-      <p className="section-label">Case studies</p>
-      <h2 className="section-title">How I think through <em>hard problems.</em></h2>
-      <div className="cs-grid">
-        {caseStudies.map(s => <CaseStudyCard key={s.id} study={s} />)}
+    <section id="case" className="case-section">
+      <div className={`section-head reveal ${inView ? 'in' : ''}`} ref={ref}>
+        <div>
+          <p className="eyebrow case-eyebrow">Case studies</p>
+          <h2 className="section-title case-title">How I think through <span className="it case-it">hard problems.</span></h2>
+        </div>
+        <span className="section-num case-num">§ 05 / 07</span>
+      </div>
+      <div className="case-stack">
+        {caseStudies.map((s, i) => (
+          <CaseCard key={s.id} study={s} flip={i % 2 === 1} index={i} />
+        ))}
       </div>
     </section>
   )

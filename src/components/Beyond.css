@@ -1,39 +1,39 @@
-.beyond-section {
-  background: var(--parchment);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
-  padding: 5rem 4rem;
+.beyond {
+  background: var(--forest); color: var(--bone);
+  padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
 }
-.beyond-body p { font-size: 1rem; color: var(--stone); line-height: 1.8; margin-bottom: 1.25rem; }
-.beyond-body p strong { color: var(--bark); font-weight: 500; }
-.book-card {
-  background: var(--warm-white);
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 4px; padding: 2rem;
-  display: flex; gap: 1.5rem; align-items: flex-start;
+.beyond-img { position: relative; overflow: hidden; }
+.beyond-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 2s cubic-bezier(.2,.7,.2,1);
 }
-.book-spine {
-  width: 52px; min-width: 52px; height: 78px;
-  background: var(--moss); border-radius: 2px;
-  display: flex; align-items: center; justify-content: center;
+.beyond:hover .beyond-img img { transform: scale(1.04); }
+.beyond-cap {
+  position: absolute; top: 1.4rem; left: 1.4rem;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--bone); background: rgba(0,0,0,.4);
+  padding: .4rem .7rem; backdrop-filter: blur(4px);
 }
-.book-info-label {
-  font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--clay); margin-bottom: 0.4rem;
+.beyond-text {
+  padding: 6rem 3.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+  max-width: 640px;
 }
-.book-title { font-family: 'Lora', serif; font-size: 1.05rem; color: var(--bark); line-height: 1.4; margin-bottom: 0.5rem; }
-.book-desc { font-size: 0.85rem; color: var(--stone); line-height: 1.6; }
+.beyond-eyebrow { color: var(--sage); }
+.beyond-eyebrow::before { background: var(--sage); }
+.beyond-title { color: var(--bone); margin-bottom: 2rem; }
+.beyond-it { color: var(--sage); }
+.beyond-text p {
+  font-family: var(--font-serif); font-size: 1.08rem;
+  line-height: 1.75; color: rgba(237,231,220,.85); margin-bottom: 1.3rem;
+}
+.beyond-text p strong { color: var(--bone); font-weight: 500; }
 
-.project-link {
-  font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--clay);
-  text-decoration: none; border-bottom: 1px solid transparent;
-  padding-bottom: 1px; transition: border-color 0.2s;
-}
-.project-link:hover { border-color: var(--clay); }
-
-@media (max-width: 768px) {
-  .beyond-section { grid-template-columns: 1fr; gap: 2rem; padding: 3.5rem 1.75rem; }
+@media (max-width: 980px) {
+  .beyond { grid-template-columns: 1fr; }
+  .beyond-img { min-height: 340px; }
+  .beyond-text { padding: 4rem 1.6rem; }
 }
