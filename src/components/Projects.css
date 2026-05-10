@@ -74,10 +74,6 @@
   line-height: 1.05; letter-spacing: -.015em;
   margin-top: auto; margin-bottom: .4rem;
 }
-.spec-latin {
-  font-family: var(--font-serif); font-style: italic;
-  font-size: .85rem; color: rgba(237,231,220,.7); margin-bottom: .7rem;
-}
 .spec-desc {
   font-size: .88rem; line-height: 1.55;
   color: rgba(237,231,220,.78); max-width: 38ch; margin-bottom: .9rem;

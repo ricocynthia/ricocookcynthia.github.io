@@ -4,9 +4,7 @@ import './Projects.css'
 
 const SPECIMENS = [
   {
-    num: 'No. 01 · React · 2024',
     name: 'Forage & Heal',
-    latin: 'Plantago herbaceum',
     desc: 'A searchable reference for wild plants and medicinal mushrooms in Minnesota. Search by name or healing property, filter by category.',
     tags: ['frontend', 'nature'],
     stack: 'React · GH Pages',
@@ -16,9 +14,7 @@ const SPECIMENS = [
     img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1400&q=80',
   },
   {
-    num: 'No. 02 · Go · 2024',
     name: 'Botanica API',
-    latin: 'Backendus officinalis',
     desc: 'The Go backend powering Forage & Heal. gRPC + REST BFF — the same pattern I use daily at Alaska.',
     tags: ['backend', 'nature'],
     stack: 'Go · gRPC · Railway',
@@ -46,10 +42,8 @@ function SpecCard({ spec, hidden }) {
         <img src={spec.img} alt="" />
       </div>
       <div className="spec-body">
-        <div className="spec-num">{spec.num}</div>
         <div>
           <div className="spec-name">{spec.name}</div>
-          <div className="spec-latin">{spec.latin}</div>
           <p className="spec-desc">{spec.desc}</p>
         </div>
         <div className="spec-meta">
@@ -86,7 +80,6 @@ export default function Projects() {
             </button>
           ))}
         </div>
-        <span className="section-num">§ 04 / 07</span>
       </div>
 
       <div className={`spec-grid stagger ${inView ? 'in' : ''}`} ref={ref}>

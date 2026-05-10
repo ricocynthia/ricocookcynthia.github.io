@@ -10,7 +10,6 @@ export default function Published() {
           <p className="eyebrow">Published work</p>
           <h2 className="section-title">A book I co-<span className="it">authored.</span></h2>
         </div>
-        <span className="section-num">§ 06 / 07</span>
       </div>
 
       <a

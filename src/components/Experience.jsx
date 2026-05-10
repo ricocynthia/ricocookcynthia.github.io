@@ -37,7 +37,6 @@ export default function Experience() {
           <p className="eyebrow exp-eyebrow">Experience</p>
           <h2 className="section-title exp-title">Where I've <span className="it exp-it">built things.</span></h2>
         </div>
-        <span className="section-num exp-num">§ 03 / 07</span>
       </div>
       <div className="exp-list">
         {experience.map((item, i) => (

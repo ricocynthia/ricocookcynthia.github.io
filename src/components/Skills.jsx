@@ -11,7 +11,6 @@ export default function Skills() {
           <p className="eyebrow">Toolkit</p>
           <h2 className="section-title">My <span className="it">toolkit.</span></h2>
         </div>
-        <span className="section-num">§ 07 / 07</span>
       </div>
       <div className="tool-grid">
         {skills.map(group => (

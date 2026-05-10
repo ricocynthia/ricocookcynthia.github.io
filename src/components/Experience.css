@@ -7,7 +7,7 @@
 .exp-eyebrow { color: var(--sage); }
 .exp-eyebrow::before { background: var(--sage); }
 .exp-num { color: var(--sage); }
-.exp-title { color: var(--bone); }
+.exp-title { color: var(--bone) !important; }
 .exp-it { color: var(--sage); }
 
 .exp-list { border-top: 1px solid rgba(255,255,255,.10); }

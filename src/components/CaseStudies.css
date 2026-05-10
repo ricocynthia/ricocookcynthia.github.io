@@ -6,7 +6,7 @@
 .case-eyebrow { color: var(--sage); }
 .case-eyebrow::before { background: var(--sage); }
 .case-num { color: var(--sage); }
-.case-title { color: var(--bone); }
+.case-title { color: var(--bone) !important; }
 .case-it { color: var(--sage); }
 
 .case-stack { display: flex; flex-direction: column; gap: 2rem; }

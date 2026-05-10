@@ -11,7 +11,6 @@ export default function About() {
           <p className="eyebrow">About</p>
           <h2 className="section-title">Engineer with a deep <span className="it">why</span> habit.</h2>
         </div>
-        <span className="section-num">§ 02 / 07</span>
       </div>
 
       <div className="about-grid reveal in">
@@ -20,10 +19,6 @@ export default function About() {
             src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=900&q=80"
             alt="Forest light through leaves"
           />
-          <div className="about-photo-cap">
-            <b>Plate 02</b>
-            <span>Fagus sylvatica · summer canopy</span>
-          </div>
         </div>
         <div className="about-body">
           <p>I'm a senior full-stack engineer who gets genuinely excited about <strong>complex business rules</strong>. The kind of work where you have to read the actual FAA policy documents before writing a single line of code — that's my kind of challenge.</p>

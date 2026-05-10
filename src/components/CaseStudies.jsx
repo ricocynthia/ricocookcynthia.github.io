@@ -59,7 +59,6 @@ export default function CaseStudies() {
           <p className="eyebrow case-eyebrow">Case studies</p>
           <h2 className="section-title case-title">How I think through <span className="it case-it">hard problems.</span></h2>
         </div>
-        <span className="section-num case-num">§ 05 / 07</span>
       </div>
       <div className="case-stack">
         {caseStudies.map((s, i) => (
