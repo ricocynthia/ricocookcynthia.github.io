@@ -26,11 +26,50 @@
 .beyond-eyebrow::before { background: var(--sage); }
 .beyond-title { color: var(--bone); margin-bottom: 2rem; }
 .beyond-it { color: var(--sage); }
-.beyond-text p {
+.beyond-text > p {
   font-family: var(--font-serif); font-size: 1.08rem;
   line-height: 1.75; color: rgba(237,231,220,.85); margin-bottom: 1.3rem;
 }
-.beyond-text p strong { color: var(--bone); font-weight: 500; }
+.beyond-text > p strong { color: var(--bone); font-weight: 500; }
+
+/* ── Book card ── */
+.book-card {
+  display: grid; grid-template-columns: 100px 1fr;
+  gap: 1.3rem;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 1.4rem; margin-top: 1.4rem;
+  text-decoration: none; color: inherit;
+  transition: background .3s, border-color .3s;
+}
+.book-card:hover { background: rgba(255,255,255,.08); border-color: var(--sage); }
+
+.book-cover {
+  width: 100px; height: 100px;
+  overflow: hidden; border-radius: 1px;
+  flex-shrink: 0;
+}
+.book-cover img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.book-label {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: .4rem;
+}
+.book-title {
+  font-family: var(--font-serif); font-style: italic;
+  font-size: 1.05rem; line-height: 1.4; color: var(--bone); margin-bottom: .4rem;
+}
+.book-desc {
+  font-size: .85rem; color: rgba(237,231,220,.6); line-height: 1.55; margin-bottom: .6rem;
+}
+.book-link {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: .10em; text-transform: uppercase;
+  color: var(--sage);
+}
 
 @media (max-width: 980px) {
   .beyond { grid-template-columns: 1fr; }

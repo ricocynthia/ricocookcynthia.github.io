@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
@@ -7,7 +7,6 @@ import About from './components/About'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
 import CaseStudies from './components/CaseStudies'
-import Published from './components/Published'
 import Skills from './components/Skills'
 import Beyond from './components/Beyond'
 import Contact from './components/Contact'
@@ -60,7 +59,6 @@ function Home() {
       <Experience />
       <Projects />
       <CaseStudies />
-      <Published />
       <Skills />
       <Beyond />
       <Contact />
