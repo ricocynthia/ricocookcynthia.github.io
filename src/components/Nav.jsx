@@ -16,30 +16,32 @@ export default function Nav() {
   const close = () => setOpen(false)
 
   return (
-    <header className={`bar${open ? ' bar--open' : ''}`}>
-      <span className="bar-mark">Cynthia Rico Cook</span>
+    <>
+      <header className={`bar${open ? ' bar--open' : ''}`}>
+        <span className="bar-mark">Cynthia Rico Cook</span>
 
-      <nav className="bar-nav">
-        <a href="#about">About</a>
-        <a href="#work">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#case">Case studies</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <nav className="bar-nav">
+          <a href="#about">About</a>
+          <a href="#work">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#case">Case studies</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-      <span className="bar-status">
-        <span className="bar-dot" />
-        Open · Remote
-      </span>
+        <span className="bar-status">
+          <span className="bar-dot" />
+          Open · Remote
+        </span>
 
-      <button
-        className="bar-burger"
-        aria-label={open ? 'Close menu' : 'Open menu'}
-        aria-expanded={open}
-        onClick={() => setOpen(o => !o)}
-      >
-        <span /><span /><span />
-      </button>
+        <button
+          className="bar-burger"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen(o => !o)}
+        >
+          <span /><span /><span />
+        </button>
+      </header>
 
       {open && (
         <div className="bar-mobile-menu" onClick={close}>
@@ -50,6 +52,6 @@ export default function Nav() {
           <a href="#contact" onClick={close}>Contact</a>
         </div>
       )}
-    </header>
+    </>
   )
 }
