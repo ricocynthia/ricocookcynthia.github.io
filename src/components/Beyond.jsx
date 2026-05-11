@@ -4,7 +4,6 @@ export default function Beyond() {
   return (
     <section className="beyond">
       <div className="beyond-img">
-        <span className="beyond-cap">Plate 07 — wild gathering</span>
         <img
           src="/src/assets/dandelion-harvest.jpg"
           alt="Dandelion leaves and roots harvested from the wild, laid out in a sink to be washed"

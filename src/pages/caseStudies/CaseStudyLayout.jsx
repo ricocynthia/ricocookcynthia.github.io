@@ -38,7 +38,7 @@ export default function CaseStudyLayout({
         <button className="cs-bar-back" onClick={() => navigate('/')}>
           <span className="cs-arr">←</span> Work
         </button>
-        <button className="cs-bar-mark" onClick={() => navigate('/')}>RC</button>
+        <button className="cs-bar-mark" onClick={() => navigate('/')}>CRC</button>
         <nav className="cs-bar-nav">
           <Link to="/#about">About</Link>
           <Link to="/#experience">Experience</Link>

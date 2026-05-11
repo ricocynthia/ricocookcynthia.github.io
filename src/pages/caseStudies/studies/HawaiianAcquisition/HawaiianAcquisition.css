@@ -1,2 +1,15 @@
-/* HA case study — diagram SVG text selectors only */
-.ha-diagram text { font-family: var(--font-mono); }
+/* HA diagram node and line styles, adapted to redesign tokens */
+
+.ha-diagram text { font-family: var(--font-sans); fill: var(--ink); }
+.ha-th { font-size: 14px; font-weight: 500; }
+.ha-ts { font-size: 12px; fill: var(--stone); }
+.ha-arr { stroke: rgba(14,20,16,.3); stroke-width: 1; fill: none; }
+
+.ha-gray rect { fill: var(--paper); stroke: rgba(14,20,16,.2); }
+.ha-teal rect  { fill: #E1F5EE; stroke: #1D9E75; }
+.ha-coral rect { fill: #FAECE7; stroke: #D85A30; }
+
+.ha-teal .ha-th  { fill: #085041; }
+.ha-teal .ha-ts  { fill: #0F6E56; }
+.ha-coral .ha-th { fill: #712B13; }
+.ha-coral .ha-ts { fill: #993C1D; }
