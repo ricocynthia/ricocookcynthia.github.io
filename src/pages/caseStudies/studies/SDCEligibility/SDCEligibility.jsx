@@ -1,130 +1,146 @@
 import CaseStudyLayout from '../../CaseStudyLayout'
 import './SDCEligibility.css'
 
-const meta = [
-  { label: 'Role', value: 'Investigator + solution author' },
-  { label: 'Timeline', value: 'A few days' },
-  { label: 'Stack', value: 'Node.js BFF' },
-  { label: 'Type', value: 'Bug discovery + handoff' },
+const TITLE_LINES = [
+  { text: 'Diagnosing a' },
+  { text: 'misclassified 404 in the' },
+  { text: 'Same Day Change', italic: true },
+  { text: 'eligibility endpoint.', italic: true },
 ]
- 
-const tags = ['Node.js', 'BFF', 'Quantum Metric', 'Same Day Change', 'API Design']
- 
+
+const META = [
+  { key: 'Role',    val: 'Investigator + solution author' },
+  { key: 'Scope',   val: 'A few days' },
+  { key: 'Stack',   val: 'Node.js BFF · Quantum Metric' },
+  { key: 'Type',    val: 'Bug discovery + handoff' },
+  { key: 'Outcome', val: 'Correct HTTP semantics, clean monitoring' },
+]
+
 function ResponseDiagram() {
   return (
-    <svg width="100%" viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" style={{ fontFamily: 'inherit' }}>
+    <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%' }}>
       <defs>
-        <marker id="arrow-sdc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M2 1L8 5L2 9" fill="none" stroke="#999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <marker id="sdc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#2F4A37"/>
+        </marker>
+        <marker id="sdc-arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="#7A4628"/>
         </marker>
       </defs>
- 
-      {/* Client */}
-      <g>
-        <rect x="20" y="20" width="160" height="44" rx="8" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.4"/>
-        <text x="100" y="38" textAnchor="middle" dominantBaseline="central" fontSize="11" fontWeight="600" fill="currentColor">BFF endpoint</text>
-        <text x="100" y="56" textAnchor="middle" dominantBaseline="central" fontSize="10" fill="currentColor" opacity="0.6">GET /sdc/eligible</text>
+      <g fontFamily="DM Mono, monospace" fontSize="11" fill="#1A2018">
+        {/* Client */}
+        <rect x="10" y="115" width="130" height="50" rx="2" fill="#EDE7DC" stroke="#1A2018" strokeWidth="1"/>
+        <text x="75" y="137" textAnchor="middle" fontSize="11">BFF endpoint</text>
+        <text x="75" y="152" textAnchor="middle" fontSize="9" fill="#6E6557">GET /sdc/eligible</text>
+
+        <line x1="140" y1="140" x2="200" y2="140" stroke="#2F4A37" strokeWidth="1.4" markerEnd="url(#sdc-arrow)"/>
+
+        {/* Internal API */}
+        <rect x="200" y="115" width="150" height="50" rx="2" fill="#1F2D24"/>
+        <text x="275" y="137" textAnchor="middle" fill="#EDE7DC" fontSize="11">SDC Eligible API</text>
+        <text x="275" y="152" textAnchor="middle" fill="#7E9C7A" fontSize="9">Internal AS endpoint</text>
+
+        {/* eligible: true path */}
+        <line x1="350" y1="130" x2="490" y2="80"  stroke="#2F4A37" strokeWidth="1.2" markerEnd="url(#sdc-arrow)"/>
+        <text x="380" y="100" fontSize="9" fill="#2F4A37">eligible: true</text>
+
+        {/* eligible: false — before path */}
+        <line x1="350" y1="150" x2="490" y2="200" stroke="#7A4628" strokeWidth="1.2" strokeDasharray="4 3" markerEnd="url(#sdc-arrow-red)"/>
+        <text x="358" y="185" fontSize="9" fill="#7A4628">eligible: false</text>
+
+        {/* Good result box */}
+        <rect x="490" y="55"  width="180" height="50" rx="2" fill="#F4EFE5" stroke="#1A2018" strokeWidth="1"/>
+        <text x="502" y="75"  fontSize="9" fill="#2F4A37">CORRECT PATH</text>
+        <text x="502" y="91"  fontSize="11">200 + payload</text>
+
+        {/* Before box: 404 */}
+        <rect x="490" y="175" width="180" height="50" rx="2" fill="#1A2018" stroke="#7A4628" strokeWidth="1"/>
+        <text x="502" y="195" fontSize="9" fill="#7A4628">BEFORE (WRONG)</text>
+        <text x="502" y="211" fontSize="11" fill="#EDE7DC">404 Not Found</text>
+
+        {/* Arrow to fix */}
+        <line x1="670" y1="200" x2="730" y2="200" stroke="#7A4628" strokeWidth="1.2" strokeDasharray="3 3" markerEnd="url(#sdc-arrow-red)"/>
+
+        {/* After box: 200 */}
+        <rect x="730" y="175" width="220" height="50" rx="2" fill="#1F2D24" stroke="#7E9C7A" strokeWidth="1"/>
+        <text x="742" y="195" fontSize="9" fill="#7E9C7A">AFTER (CORRECT)</text>
+        <text x="742" y="211" fontSize="11" fill="#EDE7DC">200 + eligible: false</text>
       </g>
- 
-      {/* Arrow down */}
-      <line x1="100" y1="64" x2="100" y2="110" stroke="currentColor" strokeWidth="1" opacity="0.4" markerEnd="url(#arrow-sdc)"/>
- 
-      {/* Internal AS API */}
-      <g>
-        <rect x="20" y="110" width="160" height="44" rx="8" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.4"/>
-        <text x="100" y="128" textAnchor="middle" dominantBaseline="central" fontSize="11" fontWeight="600" fill="currentColor">SDC Eligible API</text>
-        <text x="100" y="146" textAnchor="middle" dominantBaseline="central" fontSize="10" fill="currentColor" opacity="0.6">Internal AS endpoint</text>
-      </g>
- 
-      {/* Arrow: eligible */}
-      <text x="198" y="148" fontSize="10" fill="currentColor" opacity="0.6">eligible: true</text>
-      <path d="M180 132 L340 132 L340 210" stroke="currentColor" strokeWidth="1" opacity="0.4" fill="none" markerEnd="url(#arrow-sdc)"/>
- 
-      {/* Arrow: not eligible (before) */}
-      <text x="198" y="182" fontSize="10" fill="#D85A30">eligible: false</text>
-      <path d="M180 154 L460 154 L460 210" stroke="#D85A30" strokeWidth="1" fill="none" markerEnd="url(#arrow-sdc)"/>
- 
-      {/* Before box: 404 */}
-      <g>
-        <rect x="280" y="210" width="120" height="44" rx="8" fill="none" stroke="#D85A30" strokeWidth="1"/>
-        <text x="340" y="228" textAnchor="middle" dominantBaseline="central" fontSize="11" fontWeight="700" fill="#D85A30">404</text>
-        <text x="340" y="246" textAnchor="middle" dominantBaseline="central" fontSize="10" fill="#D85A30">Before (wrong)</text>
-      </g>
- 
-      {/* After box: 200 */}
-      <g>
-        <rect x="400" y="210" width="160" height="44" rx="8" fill="none" stroke="#1D9E75" strokeWidth="1"/>
-        <text x="480" y="228" textAnchor="middle" dominantBaseline="central" fontSize="11" fontWeight="700" fill="#1D9E75">200 + eligible: false</text>
-        <text x="480" y="246" textAnchor="middle" dominantBaseline="central" fontSize="10" fill="#1D9E75">After (correct)</text>
-      </g>
- 
-      {/* Divider label */}
-      <line x1="20" y1="295" x2="660" y2="295" stroke="currentColor" strokeWidth="0.5" opacity="0.2"/>
-      <rect x="20" y="308" width="12" height="12" rx="2" fill="#D85A30" opacity="0.7"/>
-      <text x="38" y="317" fontSize="10" fill="currentColor" opacity="0.6">Before: non-eligibility misclassified as error</text>
-      <rect x="300" y="308" width="12" height="12" rx="2" fill="#1D9E75" opacity="0.7"/>
-      <text x="318" y="317" fontSize="10" fill="currentColor" opacity="0.6">After: 200 with eligibility payload</text>
     </svg>
   )
 }
- 
+
 export default function SDCEligibility() {
   return (
     <CaseStudyLayout
-      title="Diagnosing a Misclassified 404 in the Same Day Change Eligibility Endpoint"
-      subtitle="How a spike in 404 errors turned out to be correct business logic incorrectly expressed as an HTTP error, and how I traced it, reframed it for stakeholders, and handed it off for a clean fix."
-      meta={meta}
+      number="02"
+      eyebrow="Case study · No. 02"
+      titleLines={TITLE_LINES}
+      subtitle="How a spike in 404 errors turned out to be correct business logic incorrectly expressed as an HTTP error — and how I traced it, reframed it for stakeholders, and handed it off with a clean fix."
+      meta={META}
+      nextStudy={null}
     >
-      <h2 className="cs-section-h">The problem</h2>
-      <p className="cs-body">The Quantum Metric team flagged a spike in 404 responses from our Same Day Change (SDC) eligibility endpoint. SDC lets guests change their flight on the same day of travel, and the endpoint is responsible for telling the frontend whether a given guest's reservation is eligible. At first glance, the spike looked like a broken endpoint.</p>
-      <p className="cs-body">My EM dropped the ADO item in my queue to take a look. What I found was that the endpoint wasn't broken at all. The spike tracked almost exactly with increased traffic. A lot of those guests simply weren't eligible for SDC, and the BFF was returning a 404 for them every time.</p>
- 
-      <div className="cs-callout">
+
+      <h2 className="cs-h2 reveal"><span className="num">§ 01</span> The <span className="it">situation.</span></h2>
+      <p className="cs-p reveal">The Quantum Metric team flagged a spike in 404 responses from our Same Day Change (SDC) eligibility endpoint. SDC lets guests change their flight on the same day of travel — the endpoint tells the frontend whether a given guest's reservation qualifies. At first glance, the spike looked like a broken endpoint.</p>
+      <p className="cs-p reveal">My EM dropped the ADO item in my queue. What I found was that the endpoint wasn't broken at all. The spike tracked almost exactly with increased traffic. A lot of those guests simply weren't eligible for SDC, and the BFF was returning a 404 for them every time.</p>
+
+      <div className="cs-callout reveal">
         <p>The endpoint was calling an internal Alaska API that returned a successful response with <strong>eligible: false</strong>. Instead of passing that through as a 200, the BFF was throwing a 404. Non-eligibility was being treated as an error condition when it was just a normal business outcome.</p>
-        <p style={{ marginTop: '0.75rem' }}>Importantly, this did not affect the guest experience. When the 404 came back, the frontend simply didn't show the Same Day Change button. Guests who weren't eligible never saw a broken page or an error. The impact was entirely behind the scenes: misleading monitoring signals and a false picture of endpoint health.</p>
+        <p>Importantly, this did not affect the guest experience. When the 404 came back, the frontend simply didn't show the Same Day Change button. The impact was entirely behind the scenes: misleading monitoring signals and a false picture of endpoint health.</p>
       </div>
- 
-      <h2 className="cs-section-h">How I traced it</h2>
-      <p className="cs-body">The QM team shared session recordings that made the 404s visible. I took those sessions into QA and reproduced the issue myself: hit the endpoint for an ineligible PNR, got a 404 back. That was enough to know something was off.</p>
-      <p className="cs-body">From there I went straight to the data gatherer in the BFF code. Reading through the logic, I could see exactly what was happening. The downstream API was returning a 200 with an eligibility payload. But when that payload indicated not eligible, the gatherer was treating it as a failure and throwing a 404 instead of returning the result as-is. The API call itself was working. The problem was entirely in how we were interpreting its response.</p>
-      <p className="cs-body">This feature had been gated behind an Optimizely toggle since it was built about eight months ago, so it's possible the behavior had been there the whole time and just hadn't been visible at scale until traffic picked up.</p>
- 
-      <hr className="cs-divider" />
- 
-      <h2 className="cs-section-h">Response behavior: before and after</h2>
-      <p className="cs-body">The diagram below shows how the BFF was incorrectly mapping non-eligibility to a 404, and what the corrected behavior looks like.</p>
-      <div className="sdc-diagram-wrap">
-        <ResponseDiagram />
-      </div>
- 
-      <hr className="cs-divider" />
- 
-      <h2 className="cs-section-h">Reframing it for stakeholders</h2>
-      <p className="cs-body">The framing mattered here. The initial concern from QM was that the endpoint was broken and generating errors. That framing would have made this an incident. What was actually happening was a logic bug that misclassified a normal outcome as an HTTP error. The endpoint was functioning, just returning the wrong status code for a valid business case.</p>
-      <p className="cs-body">I documented my findings directly in the ADO item, including the root cause, the expected behavior, and the proposed fix. The fix itself is simple: when the downstream API returns a successful response with eligible: false, return a 200 with that payload instead of throwing a 404. No ambiguity in the outcome, just wrong response code.</p>
- 
-      <h2 className="cs-section-h">Ownership without history</h2>
-      <p className="cs-body">The engineer who originally built this feature is no longer on the team. That could have been a reason to deprioritize it or treat it as someone else's problem. It wasn't. It's our product, and when something lands in my queue I treat it as mine regardless of who wrote the original code or how well I know that part of the codebase.</p>
-      <p className="cs-body">I didn't have deep context on this feature going in. I learned what I needed to: how the endpoint was structured, what the gatherer was doing, what the downstream API actually returned. That was enough to identify the root cause and write a clear fix proposal. With my workload already full, I routed the implementation to one of our newer engineers. The ADO item had everything they needed, root cause, reproduction steps, proposed fix, so the handoff required no back-and-forth.</p>
- 
-      <div className="cs-callout">
-        <p><strong>The broader takeaway:</strong> a 404 should mean "this resource doesn't exist," not "this guest isn't eligible." Eligibility is a business outcome, not an error state. Getting that distinction right matters both for frontend consumers who parse status codes and for monitoring tools that treat 4xx responses as signals of something going wrong.</p>
-      </div>
- 
-      <h2 className="cs-section-h">Key decisions</h2>
-      <ol className="cs-decision-list">
-        <li>Reproduced in QA before drawing conclusions: session recordings alone weren't enough. I needed to confirm the behavior myself before writing anything up.</li>
-        <li>Read the code, not just the logs: the root cause wasn't visible in Quantum Metric. It required going into the gatherer and following the response handling logic.</li>
-        <li>Reframed the narrative early: communicating "logic bug, not broken endpoint" to the PM and EM before the fix was scoped prevented unnecessary urgency and kept the scope accurate.</li>
-        <li>Documented everything in ADO: findings, root cause, and proposed fix all in one place made the handoff to the implementing engineer straightforward.</li>
+
+      <h2 className="cs-h2 reveal"><span className="num">§ 02</span> The <span className="it">constraints.</span></h2>
+      <ol className="cs-decisions reveal">
+        <li><strong>No regression on the happy path.</strong> Guests who <em>were</em> eligible for SDC had to keep seeing the button. Any fix touching the response-mapping logic needed to leave the positive case intact.</li>
+        <li><strong>Correct HTTP semantics.</strong> The fix needed to express the real meaning: a successful call that determined ineligibility is a 200, not a 404.</li>
+        <li><strong>Clean monitoring going forward.</strong> Monitoring tools treat 4xx responses as signals of something going wrong. Fixing the status code would immediately clean up the noise in Quantum Metric.</li>
+        <li><strong>No ownership of the original code.</strong> The engineer who built this feature had left the team. The fix needed to be clear enough to hand off with no back-and-forth.</li>
       </ol>
- 
-      <hr className="cs-divider" />
- 
-      <h2 className="cs-section-h">Stack</h2>
-      <div className="cs-tag-row">
-        {tags.map(t => <span key={t} className="tag">{t}</span>)}
+
+      <h2 className="cs-h2 reveal"><span className="num">§ 03</span> The <span className="it">approach.</span></h2>
+      <p className="cs-p reveal">The QM team shared session recordings that made the 404s visible. I reproduced the issue in QA: hit the endpoint for an ineligible PNR, got a 404 back. That was enough to know something was off.</p>
+      <p className="cs-p reveal">From there I went straight to the data gatherer in the BFF code. The downstream API was returning a 200 with an eligibility payload. But when that payload indicated <em>not eligible</em>, the gatherer was treating it as a failure and throwing a 404 instead of returning the result as-is. The API call itself was working — the problem was entirely in how we were interpreting its response.</p>
+      <p className="cs-p reveal">This feature had been gated behind an Optimizely toggle since it was built about eight months prior, so it's possible the behavior had been there the whole time and just hadn't been visible at scale until traffic picked up.</p>
+
+      <div className="cs-diagram reveal">
+        <ResponseDiagram />
+        <p className="cs-diagram-cap">Fig. 01 — BFF response mapping before and after the fix</p>
       </div>
+
+      <h2 className="cs-h2 reveal"><span className="num">§ 04</span> Decisions worth <span className="it">naming.</span></h2>
+      <ol className="cs-decisions reveal">
+        <li><strong>Reproduced in QA before drawing conclusions.</strong> Session recordings alone weren't enough. I needed to confirm the behavior myself before writing anything up.</li>
+        <li><strong>Read the code, not just the logs.</strong> The root cause wasn't visible in Quantum Metric. It required going into the gatherer and following the response-handling logic.</li>
+        <li><strong>Reframed the narrative early.</strong> Communicating "logic bug, not broken endpoint" to the PM and EM before the fix was scoped prevented unnecessary urgency and kept scope accurate.</li>
+        <li><strong>Documented everything in ADO.</strong> Findings, root cause, and proposed fix all in one place made the handoff to the implementing engineer straightforward — no back-and-forth needed.</li>
+      </ol>
+
+      <h2 className="cs-h2 reveal"><span className="num">§ 05</span> The <span className="it">outcome.</span></h2>
+
+      <div className="cs-highlight reveal">
+        <span className="stat">0</span>
+        <span className="lab"><strong>Guest-facing impact.</strong> The 404 was invisible to guests — the frontend already hid the SDC button on non-200 responses. The fix cleaned up monitoring without changing any user-visible behavior.</span>
+      </div>
+      <div className="cs-highlight reveal">
+        <span className="stat">1&nbsp;line</span>
+        <span className="lab"><strong>Core fix.</strong> Change the response-mapping in the gatherer to return 200 with the eligibility payload when the downstream API indicates non-eligibility. No architectural change required.</span>
+      </div>
+
+      <p className="cs-p reveal" style={{ marginTop: '2rem' }}>With my workload already full, I routed the implementation to one of our newer engineers. The ADO item had everything they needed — root cause, reproduction steps, proposed fix — so the handoff required no back-and-forth.</p>
+
+      <h2 className="cs-h2 reveal"><span className="num">§ 06</span> What I'd <span className="it">take with me.</span></h2>
+      <p className="cs-p reveal">A 404 should mean "this resource doesn't exist," not "this guest isn't eligible." <strong>Eligibility is a business outcome, not an error state.</strong> Getting that distinction right matters both for frontend consumers who parse status codes and for monitoring tools that treat 4xx responses as signals of something going wrong.</p>
+      <p className="cs-p reveal">The broader principle: when a spike in errors lands in your queue, the first question isn't "what broke?" — it's "is this actually an error, or is it a normal outcome being mislabeled?" The answer shapes everything: the urgency, the fix, the conversation with stakeholders.</p>
+
+      <hr className="cs-divider" />
+
+      <div className="cs-tag-row reveal">
+        {['Node.js BFF','Quantum Metric','Same Day Change','API design','Debugging','HTTP semantics'].map(t => (
+          <span key={t} className="cs-tag">{t}</span>
+        ))}
+      </div>
+
     </CaseStudyLayout>
   )
 }
