@@ -9,7 +9,6 @@ export default function Nav() {
         <a href="#work">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#case">Case studies</a>
-        <a href="#published">Book</a>
         <a href="#contact">Contact</a>
       </nav>
       <span className="bar-status">

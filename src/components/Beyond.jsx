@@ -6,8 +6,8 @@ export default function Beyond() {
       <div className="beyond-img">
         <span className="beyond-cap">Plate 07 — wild gathering</span>
         <img
-          src="https://images.unsplash.com/photo-1604762524889-3e2fcc145683?auto=format&fit=crop&w=1400&q=80"
-          alt="Wild mushroom gathering"
+          src="/src/assets/dandelion-harvest.jpg"
+          alt="Dandelion leaves and roots harvested from the wild, laid out in a sink to be washed"
         />
       </div>
       <div className="beyond-text">
@@ -23,7 +23,7 @@ export default function Beyond() {
           rel="noopener noreferrer"
         >
           <div className="book-cover">
-            <img src="/assets/natures-cookbook.jpg" alt="Nature's Cookbook cover" />
+            <img src="/src/assets/natures-cookbook.jpg" alt="Nature's Cookbook cover" />
           </div>
           <div className="book-info">
             <div className="book-label">Published work · CEED · 2023</div>

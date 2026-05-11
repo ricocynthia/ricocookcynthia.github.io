@@ -35,8 +35,8 @@ export default function Hero() {
         <div className="hero-photo">
           <span className="hero-photo-badge">Minneapolis, MN · 2026</span>
           <img
-            src="https://images.unsplash.com/photo-1516048015710-7a3b4c86be44?auto=format&fit=crop&w=800&q=80"
-            alt="Hands holding fresh herbs"
+            src="/src/assets/chaga_heart.jpg"
+            alt="Chaga mushroom in the shape of a heart, growing on a birch tree"
           />
         </div>
         <div className="hero-cta">
