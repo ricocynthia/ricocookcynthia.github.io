@@ -2,14 +2,15 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
+import Marquee from './components/Marquee'
 import About from './components/About'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
+import CaseStudies from './components/CaseStudies'
 import Skills from './components/Skills'
 import Beyond from './components/Beyond'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import CaseStudies from './components/CaseStudies'
 import HawaiianAcquisition from './pages/caseStudies/studies/HawaiianAcquisition/HawaiianAcquisition'
 import SDCEligibility from './pages/caseStudies/studies/SDCEligibility/SDCEligibility'
 
@@ -24,6 +25,7 @@ function Home() {
     <>
       <Nav />
       <Hero />
+      <Marquee />
       <About />
       <Experience />
       <Projects />
