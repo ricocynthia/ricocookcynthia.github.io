@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useInView } from '../hooks/useInView'
+import forageAndHeal from '../assets/forage-and-heal.jpg'
+import oaks from '../assets/oaks.jpg'
 import './Projects.css'
 
 const SPECIMENS = [
@@ -11,7 +13,7 @@ const SPECIMENS = [
     github: 'https://github.com/ricocynthia/forage-and-heal',
     live: 'https://ricocynthia.github.io/forage-and-heal/',
     size: 'sz-half',
-    img: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1400&q=80',
+    img: forageAndHeal,
   },
   {
     name: 'Botanica API',
@@ -20,7 +22,7 @@ const SPECIMENS = [
     stack: 'Go · gRPC · Railway',
     github: 'https://github.com/ricocynthia/botanica',
     size: 'sz-half',
-    img: 'https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?auto=format&fit=crop&w=1200&q=80',
+    img: oaks,
   },
 ]
 
