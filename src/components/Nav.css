@@ -43,6 +43,9 @@
   transition: transform .25s, opacity .25s;
 }
 
+/* When menu is open, drop blend mode so the X renders as solid bone on the dark overlay */
+.bar--open { mix-blend-mode: normal; }
+
 /* Animate to X when open */
 .bar--open .bar-burger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .bar--open .bar-burger span:nth-child(2) { opacity: 0; }
