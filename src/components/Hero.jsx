@@ -1,25 +1,12 @@
 import './Hero.css'
 
-// function Globe() {
-//   return (
-//     <span className="hero-glyph">
-//       <svg viewBox="0 0 24 24">
-//         <circle cx="12" cy="12" r="9" fill="none" stroke="#1F2D24" strokeWidth="1.2"/>
-//         <path d="M12 3 Q4 12 12 21 Q20 12 12 3" fill="none" stroke="#1F2D24" strokeWidth="1.2"/>
-//         <path d="M3 12 Q12 4 21 12 Q12 20 3 12" fill="none" stroke="#1F2D24" strokeWidth="1.2"/>
-//       </svg>
-//     </span>
-//   )
-// }
-
 export default function Hero() {
   return (
     <section className="hero">
       <h1 className="hero-name">
-        <span className="hero-row"><span className="hero-word">A&nbsp;Senior</span></span>
+        <span className="hero-row"><span className="hero-word">A Senior</span></span>
         <span className="hero-row">
           <span className="hero-word">Software</span>
-          {/* <Globe /> */}
         </span>
         <span className="hero-row"><span className="hero-word hero-it">Engineer,</span></span>
         <span className="hero-row">

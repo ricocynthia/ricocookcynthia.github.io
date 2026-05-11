@@ -20,38 +20,9 @@ function ScrollToTop() {
   return null
 }
 
-// function Cursor() {
-//   const cursorRef = useRef(null)
-//   useEffect(() => {
-//     const cursor = cursorRef.current
-//     if (!cursor) return
-//     let mx = 0, my = 0, cx = 0, cy = 0
-//     const onMove = e => { mx = e.clientX; my = e.clientY }
-//     window.addEventListener('mousemove', onMove)
-//     let raf
-//     const tick = () => {
-//       cx += (mx - cx) * .18
-//       cy += (my - cy) * .18
-//       cursor.style.transform = `translate3d(${cx}px,${cy}px,0)`
-//       raf = requestAnimationFrame(tick)
-//     }
-//     tick()
-//     const targets = document.querySelectorAll('a, button, .spec-card, .case-card, [data-exp]')
-//     const add = () => cursor.classList.add('big')
-//     const rem = () => cursor.classList.remove('big')
-//     targets.forEach(el => { el.addEventListener('mouseenter', add); el.addEventListener('mouseleave', rem) })
-//     return () => {
-//       window.removeEventListener('mousemove', onMove)
-//       cancelAnimationFrame(raf)
-//     }
-//   }, [])
-//   return <div className="cursor" ref={cursorRef} />
-// }
-
 function Home() {
   return (
     <>
-      {/* <Cursor /> */}
       <Nav />
       <Hero />
       <Marquee />
