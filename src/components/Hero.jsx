@@ -1,3 +1,4 @@
+import chagaHeart from '../assets/chaga_heart.jpg'
 import './Hero.css'
 
 export default function Hero() {
@@ -22,7 +23,7 @@ export default function Hero() {
         <div className="hero-photo">
           <span className="hero-photo-badge">Minneapolis, MN · 2026</span>
           <img
-            src="/src/assets/chaga_heart.jpg"
+            src={chagaHeart}
             alt="Chaga mushroom in the shape of a heart, growing on a birch tree"
           />
         </div>

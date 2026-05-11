@@ -1,3 +1,5 @@
+import dandelionHarvest from '../assets/dandelion-harvest.jpg'
+import naturesCookbook from '../assets/natures-cookbook.jpg'
 import './Beyond.css'
 
 export default function Beyond() {
@@ -5,7 +7,7 @@ export default function Beyond() {
     <section className="beyond">
       <div className="beyond-img">
         <img
-          src="/src/assets/dandelion-harvest.jpg"
+          src={dandelionHarvest}
           alt="Dandelion leaves and roots harvested from the wild, laid out in a sink to be washed"
         />
       </div>
@@ -22,7 +24,7 @@ export default function Beyond() {
           rel="noopener noreferrer"
         >
           <div className="book-cover">
-            <img src="/src/assets/natures-cookbook.jpg" alt="Nature's Cookbook cover" />
+            <img src={naturesCookbook} alt="Nature's Cookbook cover" />
           </div>
           <div className="book-info">
             <div className="book-label">Published work · CEED · 2023</div>
