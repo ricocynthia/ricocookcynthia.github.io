@@ -1,4 +1,7 @@
 import { useInView } from '../hooks/useInView'
+import tettegoucheWaterfall from '../assets/tettegouche-waterfall.jpg'
+import oaks from '../assets/oaks.jpg'
+import birdFeather from '../assets/bird-feather.jpg'
 import './About.css'
 
 export default function About() {
@@ -16,8 +19,8 @@ export default function About() {
       <div className="about-grid reveal in">
         <div className="about-photo">
           <img
-            src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=900&q=80"
-            alt="Forest light through leaves"
+            src={birdFeather}
+            alt="A hand holding a large black and white bird feather in the middle of a forest."
           />
         </div>
         <div className="about-body">
