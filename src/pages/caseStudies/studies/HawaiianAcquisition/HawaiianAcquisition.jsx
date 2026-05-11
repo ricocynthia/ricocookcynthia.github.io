@@ -86,7 +86,7 @@ export default function HawaiianAcquisition() {
       nextStudy={NEXT}
     >
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 01</span> The <span className="it">situation.</span></h2>
+      <h2 className="cs-h2 reveal">The <span className="it">situation.</span></h2>
       <p className="cs-p reveal">In late 2024, Alaska Airlines completed its acquisition of Hawaiian Airlines. From a guest's perspective, the merger had a single visible moment: the day Alaska assumed Hawaiian's operating certificate, every Hawaiian reservation effectively became an Alaska reservation. Internally, that switchover meant <strong>two reservation systems became one</strong> — but the cutover had to happen without any guest noticing.</p>
       <p className="cs-p reveal">My team owned the search service that powers <strong>airport check-in</strong> and the mobile app's <strong>"find my trip"</strong> flow. Every kiosk lookup, every agent search at the counter, every "Manage Trip" tap — all of it routed through us. We had to keep that surface working flawlessly while the system underneath was being rewired.</p>
 
@@ -94,7 +94,7 @@ export default function HawaiianAcquisition() {
         <p>The core constraint: <strong>this was not a gradual migration</strong>. There was a single legal moment when Hawaiian PNRs became Alaska's responsibility. Either we were ready that morning, or guests at the airport would see errors at the busiest part of their day.</p>
       </div>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 02</span> The <span className="it">constraints.</span></h2>
+      <h2 className="cs-h2 reveal">The <span className="it">constraints.</span></h2>
       <ol className="cs-decisions reveal">
         <li><strong>No downtime.</strong> Check-in is a 24/7 surface. Every minute the search API is unavailable, agents fall back to manual workflows that don't scale.</li>
         <li><strong>No guest-facing disruption.</strong> A guest who booked through Hawaiian's site three months ago expects their record locator to keep working — even though the underlying system has changed.</li>
@@ -103,7 +103,7 @@ export default function HawaiianAcquisition() {
         <li><strong>Coordination across teams.</strong> Changes in our service had to land in lockstep with changes in upstream reservation systems and downstream check-in surfaces.</li>
       </ol>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 03</span> The <span className="it">approach.</span></h2>
+      <h2 className="cs-h2 reveal">The <span className="it">approach.</span></h2>
       <p className="cs-p reveal">I designed the rollout around <strong>two layered feature flags</strong> and a <strong>four-phase reservation search</strong>. The flags decoupled <em>"can we look up Hawaiian PNRs?"</em> from <em>"should we look up Hawaiian PNRs by default?"</em> — which is the distinction that made the cutover safely reversible.</p>
 
       <h3 className="cs-h3 reveal">Two layers of feature flags</h3>
@@ -161,7 +161,7 @@ export default function HawaiianAcquisition() {
         <p className="cs-diagram-cap">Fig. 01 — Request path through the four-phase search service</p>
       </div>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 04</span> Decisions worth <span className="it">naming.</span></h2>
+      <h2 className="cs-h2 reveal">Decisions worth <span className="it">naming.</span></h2>
       <ol className="cs-decisions reveal">
         <li><strong>Two flags, not one.</strong> Capability and routing are different questions, and merging them makes the rollback path slower than the failure mode it's meant to protect against.</li>
         <li><strong>Order phases by cost, not by carrier.</strong> The merger framing pulled toward "Alaska first, Hawaiian second" — but the right ordering was about <em>where the record most likely lives</em>, which kept Alaska first and pushed code-share lookups in front of cross-system calls.</li>
@@ -169,7 +169,7 @@ export default function HawaiianAcquisition() {
         <li><strong>Rehearse the cutover, twice.</strong> Once in staging with synthetic Hawaiian PNRs, once in production with capability on but routing off. The rehearsal is what bought confidence; the actual flip on cutover day was a non-event.</li>
       </ol>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 05</span> The <span className="it">outcome.</span></h2>
+      <h2 className="cs-h2 reveal">The <span className="it">outcome.</span></h2>
 
       <div className="cs-highlight reveal">
         <span className="stat">0</span>
@@ -182,7 +182,7 @@ export default function HawaiianAcquisition() {
 
       <p className="cs-p reveal" style={{ marginTop: '2rem' }}>The search surface stayed boring on cutover day, which was the goal. Internally, the four-phase structure has since become the template for how the team thinks about cross-system reservation lookups — including for the partnerships and code-shares that pre-date the merger.</p>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 06</span> What I'd <span className="it">take with me.</span></h2>
+      <h2 className="cs-h2 reveal">What I'd <span className="it">take with me.</span></h2>
       <p className="cs-p reveal">The interesting part of this project wasn't the code — it was the <strong>framing of the rollback path</strong>. Most rollout designs optimize for the success case. The thing that made this one work was thinking, very specifically, about the failure mode I was most afraid of (a 5am pager on cutover day) and designing two flags whose only job was to make that failure recoverable in under a minute.</p>
       <p className="cs-p reveal">It's a small architectural choice — two booleans instead of one. But the value it produced was almost entirely about <strong>peace of mind</strong>: the team could ship the code weeks ahead, rehearse the flip, and treat cutover day as a calm operational task rather than a crisis to survive.</p>
 

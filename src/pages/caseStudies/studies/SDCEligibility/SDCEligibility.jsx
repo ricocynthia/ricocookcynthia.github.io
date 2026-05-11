@@ -81,7 +81,7 @@ export default function SDCEligibility() {
       nextStudy={null}
     >
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 01</span> The <span className="it">situation.</span></h2>
+      <h2 className="cs-h2 reveal">The <span className="it">situation.</span></h2>
       <p className="cs-p reveal">The Quantum Metric team flagged a spike in 404 responses from our Same Day Change (SDC) eligibility endpoint. SDC lets guests change their flight on the same day of travel — the endpoint tells the frontend whether a given guest's reservation qualifies. At first glance, the spike looked like a broken endpoint.</p>
       <p className="cs-p reveal">My EM dropped the ADO item in my queue. What I found was that the endpoint wasn't broken at all. The spike tracked almost exactly with increased traffic. A lot of those guests simply weren't eligible for SDC, and the BFF was returning a 404 for them every time.</p>
 
@@ -90,7 +90,7 @@ export default function SDCEligibility() {
         <p>Importantly, this did not affect the guest experience. When the 404 came back, the frontend simply didn't show the Same Day Change button. The impact was entirely behind the scenes: misleading monitoring signals and a false picture of endpoint health.</p>
       </div>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 02</span> The <span className="it">constraints.</span></h2>
+      <h2 className="cs-h2 reveal">The <span className="it">constraints.</span></h2>
       <ol className="cs-decisions reveal">
         <li><strong>No regression on the happy path.</strong> Guests who <em>were</em> eligible for SDC had to keep seeing the button. Any fix touching the response-mapping logic needed to leave the positive case intact.</li>
         <li><strong>Correct HTTP semantics.</strong> The fix needed to express the real meaning: a successful call that determined ineligibility is a 200, not a 404.</li>
@@ -98,7 +98,7 @@ export default function SDCEligibility() {
         <li><strong>No ownership of the original code.</strong> The engineer who built this feature had left the team. The fix needed to be clear enough to hand off with no back-and-forth.</li>
       </ol>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 03</span> The <span className="it">approach.</span></h2>
+      <h2 className="cs-h2 reveal">The <span className="it">approach.</span></h2>
       <p className="cs-p reveal">The QM team shared session recordings that made the 404s visible. I reproduced the issue in QA: hit the endpoint for an ineligible PNR, got a 404 back. That was enough to know something was off.</p>
       <p className="cs-p reveal">From there I went straight to the data gatherer in the BFF code. The downstream API was returning a 200 with an eligibility payload. But when that payload indicated <em>not eligible</em>, the gatherer was treating it as a failure and throwing a 404 instead of returning the result as-is. The API call itself was working — the problem was entirely in how we were interpreting its response.</p>
       <p className="cs-p reveal">This feature had been gated behind an Optimizely toggle since it was built about eight months prior, so it's possible the behavior had been there the whole time and just hadn't been visible at scale until traffic picked up.</p>
@@ -108,7 +108,7 @@ export default function SDCEligibility() {
         <p className="cs-diagram-cap">Fig. 01 — BFF response mapping before and after the fix</p>
       </div>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 04</span> Decisions worth <span className="it">naming.</span></h2>
+      <h2 className="cs-h2 reveal">Decisions worth <span className="it">naming.</span></h2>
       <ol className="cs-decisions reveal">
         <li><strong>Reproduced in QA before drawing conclusions.</strong> Session recordings alone weren't enough. I needed to confirm the behavior myself before writing anything up.</li>
         <li><strong>Read the code, not just the logs.</strong> The root cause wasn't visible in Quantum Metric. It required going into the gatherer and following the response-handling logic.</li>
@@ -116,7 +116,7 @@ export default function SDCEligibility() {
         <li><strong>Documented everything in ADO.</strong> Findings, root cause, and proposed fix all in one place made the handoff to the implementing engineer straightforward — no back-and-forth needed.</li>
       </ol>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 05</span> The <span className="it">outcome.</span></h2>
+      <h2 className="cs-h2 reveal">The <span className="it">outcome.</span></h2>
 
       <div className="cs-highlight reveal">
         <span className="stat">0</span>
@@ -129,7 +129,7 @@ export default function SDCEligibility() {
 
       <p className="cs-p reveal" style={{ marginTop: '2rem' }}>With my workload already full, I routed the implementation to one of our newer engineers. The ADO item had everything they needed — root cause, reproduction steps, proposed fix — so the handoff required no back-and-forth.</p>
 
-      <h2 className="cs-h2 reveal"><span className="num">§ 06</span> What I'd <span className="it">take with me.</span></h2>
+      <h2 className="cs-h2 reveal">What I'd <span className="it">take with me.</span></h2>
       <p className="cs-p reveal">A 404 should mean "this resource doesn't exist," not "this guest isn't eligible." <strong>Eligibility is a business outcome, not an error state.</strong> Getting that distinction right matters both for frontend consumers who parse status codes and for monitoring tools that treat 4xx responses as signals of something going wrong.</p>
       <p className="cs-p reveal">The broader principle: when a spike in errors lands in your queue, the first question isn't "what broke?" — it's "is this actually an error, or is it a normal outcome being mislabeled?" The answer shapes everything: the urgency, the fix, the conversation with stakeholders.</p>
 
