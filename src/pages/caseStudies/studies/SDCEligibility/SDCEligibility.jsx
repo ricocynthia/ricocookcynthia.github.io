@@ -65,6 +65,13 @@ function ResponseDiagram() {
   )
 }
 
+const NEXT = {
+  label: 'Up next · Case study no. 03',
+  title: 'Building an AI diagnostic assistant for <span class="it">check-in support.</span>',
+  href: '/case-studies/agent-assist',
+  num: '03',
+}
+
 export default function SDCEligibility() {
   return (
     <CaseStudyLayout
@@ -73,7 +80,7 @@ export default function SDCEligibility() {
       titleLines={TITLE_LINES}
       subtitle="How a spike in 404 errors turned out to be correct business logic incorrectly expressed as an HTTP error — and how I traced it, reframed it for stakeholders, and handed it off for a clean fix."
       meta={META}
-      nextStudy={null}
+      nextStudy={NEXT}
     >
 
       <h2 className="cs-h2 reveal">The <span className="it">situation.</span></h2>
