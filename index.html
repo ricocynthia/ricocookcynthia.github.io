@@ -5,10 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cynthia Rico Cook — Senior Software Engineer</title>
     <meta name="description" content="Senior software engineer building high-traffic, mission-critical products. Currently at Alaska Airlines. Full stack, domain expert, product minded." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ricocynthia.github.io/" />
+    <meta property="og:title" content="Cynthia Rico Cook — Senior Software Engineer" />
+    <meta property="og:description" content="Senior software engineer building high-traffic, mission-critical products. Currently at Alaska Airlines. Full stack, domain expert, product minded." />
+    <!-- TODO: add public/og-image.png to enable the preview image -->
+    <meta property="og:image" content="https://ricocynthia.github.io/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cynthia Rico Cook — Senior Software Engineer" />
+    <meta name="twitter:description" content="Senior software engineer building high-traffic, mission-critical products. Currently at Alaska Airlines. Full stack, domain expert, product minded." />
+    <meta name="twitter:image" content="https://ricocynthia.github.io/og-image.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+
+    <!-- SPA deep-link restore: reads the path encoded by 404.html and replaces history state -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.getItem('spa-redirect');
+        if (redirect) {
+          sessionStorage.removeItem('spa-redirect');
+          var url = new URL(redirect, window.location.href);
+          window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

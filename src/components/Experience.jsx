@@ -6,7 +6,13 @@ import './Experience.css'
 function ExpRow({ item, defaultOpen }) {
   const [open, setOpen] = useState(defaultOpen || false)
   return (
-    <div className={`exp-row ${open ? 'open' : ''}`} onClick={() => setOpen(o => !o)}>
+    <div
+      className={`exp-row ${open ? 'open' : ''}`}
+      role="button"
+      tabIndex={0}
+      onClick={() => setOpen(o => !o)}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setOpen(o => !o) } }}
+    >
       <div className="exp-date">{item.dates}</div>
       <div className="exp-info">
         <div className="exp-role">
