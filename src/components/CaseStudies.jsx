@@ -1,16 +1,19 @@
 import { useNavigate } from 'react-router-dom'
 import { useInView } from '../hooks/useInView'
 import { caseStudies } from '../data/portfolio.js'
+import botanica from '../assets/botanica.jpg' // TODO: replace with dedicated image
 import './CaseStudies.css'
 
 const IMAGES = {
   'hawaiian-acquisition': 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=80',
   'sdc-eligibility': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
+  'agent-assist': botanica,
 }
 
 const META = {
   'hawaiian-acquisition': { timeline: '~ One month', role: 'Tech lead', context: 'Alaska × Hawaiian' },
   'sdc-eligibility': { timeline: 'A few days', role: 'Investigator', context: 'Bug discovery + handoff' },
+  'agent-assist': { timeline: 'POC', role: 'Designer + builder', context: 'Applied AI · internal tooling' },
 }
 
 function CaseCard({ study, flip, index }) {

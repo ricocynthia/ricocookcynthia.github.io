@@ -140,5 +140,14 @@ export const caseStudies = [
     tags: ['Node.js BFF', 'Debugging', 'Production Logs'],
     path: '/case-studies/sdc-eligibility',
   },
+  {
+    id: 'agent-assist',
+    name: 'Building an AI Diagnostic Assistant for Check-in Support',
+    description: 'A Claude-powered, tool-grounded assistant that helps support engineers diagnose why a guest cannot check in, built on a curated knowledge base compiled from production logs and service code.',
+    timeline: 'Proof of concept',
+    color: 'moss',
+    tags: ['Anthropic SDK', 'Tool calling', 'Node.js BFF', 'React'],
+    path: '/case-studies/agent-assist',
+  },
 ]
  
