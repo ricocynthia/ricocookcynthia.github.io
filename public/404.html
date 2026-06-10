@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      // spa-github-pages: store the full URL in sessionStorage and redirect to root.
+      // index.html reads it back and restores the path before React mounts.
+      sessionStorage.setItem('spa-redirect', window.location.href);
+      window.location.replace(
+        window.location.origin + window.location.pathname.split('/').slice(0, 1).join('/')
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

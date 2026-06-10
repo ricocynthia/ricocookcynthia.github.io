@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useInView } from '../hooks/useInView'
 import { caseStudies } from '../data/portfolio.js'
 import botanica from '../assets/botanica.jpg' // TODO: replace with dedicated image
@@ -17,16 +17,14 @@ const META = {
 }
 
 function CaseCard({ study, flip, index }) {
-  const navigate = useNavigate()
   const [ref, inView] = useInView()
   const m = META[study.id] || {}
 
   return (
-    <a
+    <Link
       className={`case-card reveal ${inView ? 'in' : ''} ${flip ? 'case-card-flip' : ''}`}
       ref={ref}
-      href="#"
-      onClick={e => { e.preventDefault(); navigate(study.path) }}
+      to={study.path}
     >
       <div className="case-img">
         <img src={IMAGES[study.id]} alt="" />
@@ -49,7 +47,7 @@ function CaseCard({ study, flip, index }) {
         </div>
         <span className="case-cta">Read case study<span>→</span></span>
       </div>
-    </a>
+    </Link>
   )
 }
 
